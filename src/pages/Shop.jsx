@@ -47,7 +47,7 @@ export default function Shop() {
 
     // View & Sorting State
     const [sortBy, setSortBy] = useState('Recommended');
-    const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
+    const [viewMode, setViewMode] = useState('grid-2'); // 'grid' | 'grid-2' | 'list'
     const [currentPage, setCurrentPage] = useState(1);
     
     // Data State
@@ -184,7 +184,7 @@ export default function Shop() {
             </div>
 
             {/* SHOP CONTENT - LAYOUT */}
-            <div className="shop-layout-container" style={{ flex: 1, maxWidth: 1200, margin: '0 auto', width: '100%', padding: '2rem 1.5rem', display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }}>
+            <div className="shop-layout-container" style={{ flex: 1, maxWidth: 1200, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'flex-start' }}>
                 
                 {/* Mobile Filters Toggle */}
                 <button 
@@ -202,6 +202,10 @@ export default function Shop() {
 
                 <style>
                     {`
+                    .shop-layout-container {
+                        padding: 1rem 0.5rem;
+                        gap: 1rem;
+                    }
                     .sidebar-filters {
                         width: 260px;
                         flex-shrink: 0;
@@ -234,6 +238,20 @@ export default function Shop() {
                         display: grid;
                         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                         gap: 1.5rem;
+                    }
+                    .products-grid-2-view {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 0.5rem;
+                    }
+                    @media (min-width: 768px) {
+                        .shop-layout-container {
+                            padding: 2rem 1.5rem;
+                            gap: 2.5rem;
+                        }
+                        .products-grid-2-view {
+                            gap: 1.5rem;
+                        }
                     }
                     `}
                 </style>
@@ -353,12 +371,22 @@ export default function Shop() {
                             {/* View Mode Toggle */}
                             <div style={{ display: 'flex', alignItems: 'center', gap: 4, background: '#fff', border: '1px solid #E2E8F0', borderRadius: 6, padding: 4 }}>
                                 <button 
+                                    onClick={() => setViewMode('grid-2')}
+                                    style={{ 
+                                        border: 'none', background: viewMode === 'grid-2' ? '#F1F5F9' : 'transparent',
+                                        color: viewMode === 'grid-2' ? '#1A2856' : '#94A3B8', padding: '6px 10px', borderRadius: 4, cursor: 'pointer', transition: 'all 0.2s', fontSize: '1rem'
+                                    }}
+                                    title="2-Column Grid"
+                                >
+                                    ⊞
+                                </button>
+                                <button 
                                     onClick={() => setViewMode('grid')}
                                     style={{ 
                                         border: 'none', background: viewMode === 'grid' ? '#F1F5F9' : 'transparent',
                                         color: viewMode === 'grid' ? '#1A2856' : '#94A3B8', padding: '6px 10px', borderRadius: 4, cursor: 'pointer', transition: 'all 0.2s', fontSize: '1rem'
                                     }}
-                                    title="Grid View"
+                                    title="Multi-Column Grid"
                                 >
                                     🔲
                                 </button>
@@ -379,12 +407,12 @@ export default function Shop() {
 
                     {/* Products Container */}
                     {loading ? (
-                        <div className={viewMode === 'list' ? 'products-list-view' : 'products-grid-view'}>
+                        <div className={viewMode === 'list' ? 'products-list-view' : viewMode === 'grid-2' ? 'products-grid-2-view' : 'products-grid-view'}>
                             {[1, 2, 3, 4, 5, 6, 7, 8].map(i => <SkeletonCard key={i} />)}
                         </div>
                     ) : currentItems.length > 0 ? (
                         <>
-                            <div className={viewMode === 'list' ? 'products-list-view' : 'products-grid-view'}>
+                            <div className={viewMode === 'list' ? 'products-list-view' : viewMode === 'grid-2' ? 'products-grid-2-view' : 'products-grid-view'}>
                                 {currentItems.map(product => (
                                     <div key={product.id} style={viewMode === 'list' ? { display: 'flex', gap: '1.5rem', background: '#fff', padding: '1.5rem', borderRadius: 12, border: '1px solid #E2E8F0', alignItems: 'center' } : {}}>
                                         <div style={viewMode === 'list' ? { flex: 1 } : { height: '100%' }}>
