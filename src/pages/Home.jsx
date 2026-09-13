@@ -221,7 +221,7 @@ export default function Home() {
                                     >
                                         <div className="deal-card-img">
                                             <img
-                                                src={product.img || product.images?.[0] || 'https://via.placeholder.com/300'}
+                                                src={product.img || product.images?.[0] || ''}
                                                 alt={product.name}
                                                 loading="lazy"
                                             />

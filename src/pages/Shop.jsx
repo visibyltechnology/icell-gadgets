@@ -72,14 +72,7 @@ export default function Shop() {
     useEffect(() => {
         setLoading(true);
         const unsubscribe = onSnapshot(collection(db, 'products'), (snap) => {
-            let items = snap.docs.map(d => ensureInventoryFields({ id: d.id, ...d.data() })).filter(p => !p.is_hidden);
-            
-            if (items.length === 0) {
-                items = [
-                    { id: '1', name: 'iPhone 15 Pro Max 256GB', price: 1850000, category: 'Smartphones', brand: 'Apple', inventory_status: 'in_stock', is_hidden: false, averageRating: 5, reviewCount: 124 },
-                    { id: '2', name: 'Samsung Galaxy S24 Ultra', price: 1650000, category: 'Smartphones', brand: 'Samsung', inventory_status: 'in_stock', is_hidden: false, averageRating: 4.8, reviewCount: 89 },
-                ];
-            }
+            const items = snap.docs.map(d => ensureInventoryFields({ id: d.id, ...d.data() })).filter(p => !p.is_hidden);
             setProducts(items);
             setLoading(false);
         }, (error) => {

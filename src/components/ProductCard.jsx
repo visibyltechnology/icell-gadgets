@@ -31,7 +31,7 @@ export function ProductCard({ product, tagLabel = null, onClick }) {
             {/* Image — 4:3 ratio, full bleed */}
             <div className="p-img">
                 <img
-                    src={product.img || product.images?.[0] || 'https://via.placeholder.com/400x300?text=No+Image'}
+                    src={product.img || product.images?.[0] || ''}
                     alt={product.name}
                     loading="lazy"
                 />
