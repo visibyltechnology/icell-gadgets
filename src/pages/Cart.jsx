@@ -42,9 +42,9 @@ function getKlump() {
 
 // ── Bank account details
 const BANK_ACCOUNT = {
-  bank: 'Premium Trust Bank',
-  name: 'Neo Tech Gadget',
-  number: '0040250513',
+  bank: 'Fidelity Bank plc',
+  name: 'Goodomen',
+  number: '5620008846',
 };
 
 

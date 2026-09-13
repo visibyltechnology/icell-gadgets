@@ -209,7 +209,7 @@ export default function Navbar() {
                                 style={{
                                     flex: 1, padding: '0.75rem 1rem',
                                     border: 'none', background: 'transparent',
-                                    fontFamily: 'Syne, sans-serif', fontSize: '0.85rem',
+                                    fontFamily: 'Inter, sans-serif', fontSize: '0.85rem',
                                     color: '#111827', outline: 'none',
                                 }}
                             />
@@ -237,7 +237,7 @@ export default function Navbar() {
                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                     padding: '1rem 0',
                                     borderBottom: '1px solid #F3F4F6',
-                                    fontFamily: 'Syne, sans-serif',
+                                    fontFamily: 'Inter, sans-serif',
                                     fontSize: '0.95rem',
                                     fontWeight: 700,
                                     color: l.red ? '#E31E24' : '#111827',
@@ -253,19 +253,19 @@ export default function Navbar() {
                         <div style={{ marginTop: '1.5rem', display: 'flex', gap: 8 }}>
                             {user ? (
                                 <>
-                                    <Link to="/profile" style={{ flex: 1, textAlign: 'center', padding: '0.875rem', background: '#1A2856', color: '#fff', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
+                                    <Link to="/profile" style={{ flex: 1, textAlign: 'center', padding: '0.875rem', background: '#1A2856', color: '#fff', fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
                                         My Profile
                                     </Link>
-                                    <button onClick={handleLogout} style={{ padding: '0.875rem 1.25rem', background: 'transparent', border: '1.5px solid #E5E7EB', color: '#E31E24', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.8rem', cursor: 'pointer' }}>
+                                    <button onClick={handleLogout} style={{ padding: '0.875rem 1.25rem', background: 'transparent', border: '1.5px solid #E5E7EB', color: '#E31E24', fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: '0.8rem', cursor: 'pointer' }}>
                                         Logout
                                     </button>
                                 </>
                             ) : (
                                 <>
-                                    <Link to="/login" style={{ flex: 1, textAlign: 'center', padding: '0.875rem', background: '#1A2856', color: '#fff', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
+                                    <Link to="/login" style={{ flex: 1, textAlign: 'center', padding: '0.875rem', background: '#1A2856', color: '#fff', fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
                                         Sign In
                                     </Link>
-                                    <Link to="/register" style={{ flex: 1, textAlign: 'center', padding: '0.875rem', background: 'transparent', border: '1.5px solid #E5E7EB', color: '#1A2856', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
+                                    <Link to="/register" style={{ flex: 1, textAlign: 'center', padding: '0.875rem', background: 'transparent', border: '1.5px solid #E5E7EB', color: '#1A2856', fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
                                         Register
                                     </Link>
                                 </>
@@ -302,7 +302,7 @@ export default function Navbar() {
                                     onClick={() => { navigate(`/products?search=${encodeURIComponent(s)}`); setSearchOpen(false); }}
                                     style={{
                                         padding: '0.45rem 0.875rem', fontSize: '0.75rem',
-                                        fontFamily: 'Syne, sans-serif', fontWeight: 600,
+                                        fontFamily: 'Inter, sans-serif', fontWeight: 600,
                                         border: '1.5px solid #E5E7EB', background: '#F9FAFB',
                                         cursor: 'pointer', borderRadius: 2, color: '#374151',
                                         transition: 'all 0.2s',

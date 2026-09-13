@@ -24,7 +24,7 @@ export default function Login() {
       const userDocRef = doc(db, 'users', user.uid);
       const userDocSnap = await getDoc(userDocRef);
       if (user.emailVerified) {
-        try { await updateDoc(userDocRef, { isEmailVerified: true }); } catch {}
+        try { await updateDoc(userDocRef, { isEmailVerified: true }); } catch { }
       }
       if (userDocSnap.exists() && userDocSnap.data().role === 'admin') {
         toast.success('Welcome back, Admin!');
@@ -34,7 +34,7 @@ export default function Login() {
       toast.success('Signed in successfully!');
       navigate('/shop');
     } catch (err) {
-      if (['auth/invalid-credential','auth/user-not-found','auth/wrong-password'].includes(err.code)) {
+      if (['auth/invalid-credential', 'auth/user-not-found', 'auth/wrong-password'].includes(err.code)) {
         setError('Invalid email or password. Please try again.');
       } else if (err.message?.toLowerCase().includes('offline')) {
         setError('Please check your internet connection.');
@@ -217,4 +217,3 @@ export default function Login() {
     </div>
   );
 }
-

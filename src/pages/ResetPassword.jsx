@@ -66,87 +66,89 @@ export default function ResetPassword() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col">
-      <div className="flex-grow bg-gray-50 flex items-center justify-center py-12 px-4">
-        <div className="w-full max-w-md">
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#FAFAFA' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1rem' }}>
+        <div style={{ width: '100%', maxWidth: 440 }}>
           
           {/* Logo */}
-          <div className="text-center mb-8">
-            <Link to="/" className="inline-block">
-              <div className="font-display text-4xl font-black tracking-tighter">
-                <span className="text-brandDark">MAY</span><span className="text-brandLime">JAY</span>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <Link to="/" style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 6, textDecoration: 'none' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ width: 36, height: 36, background: '#1A2856', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <i className="fa-solid fa-mobile-screen" style={{ color: '#fff', fontSize: '1rem' }}></i>
+                </div>
+                <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.75rem', fontWeight: 800, color: '#1A2856', letterSpacing: '0.04em' }}>
+                  ICELL<span style={{ color: '#E31E24' }}> GADGETS</span>
+                </span>
               </div>
             </Link>
-            <p className="text-gray-500 text-sm mt-2 font-medium">Concepts</p>
           </div>
 
           {/* Card */}
-          <div className="bg-white border border-gray-200 shadow-lg rounded-sm overflow-hidden">
-            <div className="bg-brandDark px-8 py-6 text-white text-center">
-              <h1 className="text-2xl font-black uppercase tracking-wide font-display">Create New Password</h1>
-              <p className="text-gray-400 text-sm font-medium mt-1">Enter your new secure password below</p>
+          <div style={{ background: '#fff', borderRadius: 'var(--radius-lg)', boxShadow: '0 24px 60px rgba(26,40,86,0.08)', border: '1px solid var(--border)' }}>
+            <div style={{ padding: '2rem 2.5rem 1.5rem', borderBottom: '1px solid var(--border)', textAlign: 'center' }}>
+              <h1 style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.75rem', fontWeight: 800, color: '#1A2856', margin: 0, textTransform: 'uppercase' }}>
+                Create New Password
+              </h1>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: 8 }}>Enter your new secure password below</p>
             </div>
 
-            <div className="px-8 py-8">
+            <div style={{ padding: '2rem 2.5rem' }}>
               {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 text-sm font-medium px-4 py-3 rounded-sm mb-6 flex items-center gap-2 justify-center">
-                  <i className="fas fa-exclamation-circle text-red-500"></i> {error}
+                <div style={{ background: '#FEF2F2', border: '1px solid #FCA5A5', color: '#DC2626', padding: '0.875rem 1.25rem', borderRadius: '12px', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.85rem', fontWeight: 500 }}>
+                  <i className="fas fa-exclamation-circle" /> {error}
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 
                 {/* New Password */}
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    New Password
-                  </label>
-                  <div className="relative">
-                    <i className="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <div className="form-field">
+                  <label className="form-label">New Password</label>
+                  <div style={{ position: 'relative' }}>
+                    <i className="fas fa-lock" style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)', fontSize: '0.9rem' }}></i>
                     <input
                       type={showPassword ? 'text' : 'password'}
                       placeholder="Enter new password"
                       value={newPassword}
                       onChange={e => setNewPassword(e.target.value)}
                       required
-                      className="w-full pl-10 pr-12 py-3 border border-gray-300 focus:border-brandLime outline-none text-sm font-medium transition-colors rounded-sm bg-gray-50 focus:bg-white"
+                      className="auth-input"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(v => !v)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
+                      style={{ position: 'absolute', right: 14, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: 4 }}
                     >
-                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
                   </div>
                 </div>
 
                 {/* Confirm Password */}
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Confirm New Password
-                  </label>
-                  <div className="relative">
-                    <i className="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <div className="form-field">
+                  <label className="form-label">Confirm New Password</label>
+                  <div style={{ position: 'relative' }}>
+                    <i className="fas fa-lock" style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)', fontSize: '0.9rem' }}></i>
                     <input
                       type={showConfirmPassword ? 'text' : 'password'}
                       placeholder="Confirm new password"
                       value={confirmPassword}
                       onChange={e => setConfirmPassword(e.target.value)}
                       required
-                      className="w-full pl-10 pr-12 py-3 border border-gray-300 focus:border-brandLime outline-none text-sm font-medium transition-colors rounded-sm bg-gray-50 focus:bg-white"
+                      className="auth-input"
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(v => !v)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
+                      style={{ position: 'absolute', right: 14, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: 4 }}
                     >
-                      {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
                   </div>
                 </div>
 
-                <button type="submit" disabled={loading} className="w-full bg-brandDark hover:bg-brandBlack disabled:opacity-60 text-brandLime font-black py-4 rounded-sm uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}>
                   {loading ? (
                     <><i className="fas fa-spinner fa-spin"></i> Resetting...</>
                   ) : (
@@ -156,11 +158,9 @@ export default function ResetPassword() {
               </form>
             </div>
           </div>
-
         </div>
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }
-

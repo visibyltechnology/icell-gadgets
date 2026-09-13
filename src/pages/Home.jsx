@@ -14,25 +14,39 @@ const CATEGORIES = [
     { icon: 'fa-battery-full',         label: 'Power Banks', link: '/products?cat=Power%20Banks' },
 ];
 
+const TESTIMONIALS = [
+    { initials: 'AO', name: 'Adebayo Okafor',  role: 'Lagos, Nigeria',     text: 'Got my iPhone 15 Pro in 4 hours! Same-day delivery was seamless. Icell Gadgets is the absolute best in Lagos.' },
+    { initials: 'CM', name: 'Chisom Madu',     role: 'Abuja, Nigeria',     text: 'The monthly payment option made getting a MacBook Pro possible for me. Smooth process start to finish. Highly recommended.' },
+    { initials: 'EI', name: 'Emeka Ike',       role: 'Port Harcourt',      text: 'Responded in minutes on WhatsApp. Tracking was perfect. Device exactly as described. Will definitely buy again!' },
+];
+
+const WHY_US = [
+    { icon: 'fa-credit-card',  title: 'Flexible Payments', desc: 'Spread payments over 3–24 months with Klump. Zero hidden fees.' },
+    { icon: 'fa-truck-fast',   title: 'Express Delivery',  desc: 'Same-day dispatch in Lagos. Nationwide door delivery & tracking.' },
+    { icon: 'fa-shield-halved',title: 'Official Warranty', desc: '100% authentic devices. Sealed original packaging. Guaranteed.' },
+    { icon: 'fa-whatsapp',     title: '24/7 WhatsApp',     desc: 'Always reachable on WhatsApp before and after purchase.', wa: true },
+];
+
 export default function Home() {
-    const [bestSelling, setBestSelling] = useState([]);
-    const [featLoading, setFeatLoading] = useState(true);
-    const [goodMoodDeals, setGoodMoodDeals] = useState([]);
+    const [bestSelling, setBestSelling]       = useState([]);
+    const [featLoading, setFeatLoading]       = useState(true);
+    const [goodMoodDeals, setGoodMoodDeals]   = useState([]);
     const [goodMoodLoading, setGoodMoodLoading] = useState(true);
     const [newsletterEmail, setNewsletterEmail] = useState('');
-    const [newsletterSent, setNewsletterSent] = useState(false);
+    const [newsletterSent, setNewsletterSent]   = useState(false);
     const navigate = useNavigate();
 
+    /* ── Fetch best-selling / trending ── */
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setFeatLoading(true);
-                const qRated = query(collection(db, "products"), where("averageRating", ">=", 4), limit(4));
+                const qRated = query(collection(db, 'products'), where('averageRating', '>=', 4), limit(4));
                 const snapRated = await getDocs(qRated);
                 let bSellers = snapRated.docs.map(d => ({ id: d.id, ...d.data() }));
 
                 if (bSellers.length < 4) {
-                    const qRecent = query(collection(db, "products"), limit(4 - bSellers.length));
+                    const qRecent = query(collection(db, 'products'), limit(4 - bSellers.length));
                     const snapRecent = await getDocs(qRecent);
                     for (let d of snapRecent.docs) {
                         if (!bSellers.find(i => i.id === d.id)) bSellers.push({ id: d.id, ...d.data() });
@@ -48,6 +62,7 @@ export default function Home() {
         fetchData();
     }, []);
 
+    /* ── Fetch Good Mood Deals ── */
     useEffect(() => {
         const fetchGMD = async () => {
             try {
@@ -68,75 +83,141 @@ export default function Home() {
     };
 
     return (
-        <div style={{ background: '#FAFAFA' }}>
+        <div style={{ background: '#FFFFFF' }}>
 
-            {/* ========================================================
-                HERO — Full-bleed, asymmetric, editorial
-            ======================================================== */}
-            <section className="hero-wrap">
-                <div className="hero-stripe"></div>
-                <div className="hero-circle-deco"></div>
-                <div className="hero-circle-deco-2"></div>
+            {/* ============================================================
+                ANNOUNCEMENT TICKER
+            ============================================================ */}
+            <div className="ticker-bar">
+                <div className="ticker-track">
+                    {[
+                        'Free delivery within Lagos',
+                        'Pay later with Klump',
+                        'Official warranty on all devices',
+                        'WhatsApp support 24/7',
+                        'Trusted by 28,000+ customers',
+                        'Free delivery within Lagos',
+                        'Pay later with Klump',
+                        'Official warranty on all devices',
+                        'WhatsApp support 24/7',
+                        'Trusted by 28,000+ customers',
+                        'Free delivery within Lagos',
+                        'Pay later with Klump',
+                    ].map((item, i) => (
+                        <span key={i} className="ticker-item">
+                            {item} <span className="ticker-dot" />
+                        </span>
+                    ))}
+                </div>
+            </div>
 
+            {/* ============================================================
+                HERO
+            ============================================================ */}
+            <section className="hero">
                 <div className="container">
-                    <div className="hero-inner">
-                        {/* LEFT TEXT */}
-                        <div className="hero-left anim-slide-up">
-                            <div className="hero-eyebrow">
-                                <div className="hero-eyebrow-line"></div>
-                                <span className="hero-eyebrow-text">Nigeria's No.1 Phone Store — 2026</span>
-                            </div>
+                    <div className="hero-card">
+                        <div className="hero-pattern" />
+                        <div className="glow-orb glow-orb-1" />
+                        <div className="glow-orb glow-orb-2" />
 
-                            {/* Big editorial headline */}
-                            <p className="hero-headline-italic">It's time to</p>
-                            <h1 className="hero-headline">
-                                UPGRADE<br />
-                                YOUR <span className="red">PHONE.</span>
-                            </h1>
-
-                            <p className="hero-sub">
-                                Brand new & UK used iPhones, laptops, tablets and accessories.
-                                Nationwide delivery. Pay later with Klump.
-                            </p>
-
-                            <div className="hero-cta-row">
-                                <Link to="/products" className="btn-primary">
-                                    <i className="fa-solid fa-bag-shopping"></i> Shop Now
-                                </Link>
-                                <Link to="/good-mood-deals" className="btn-outline">
-                                    <i className="fa-solid fa-bolt" style={{ color: '#E31E24' }}></i> Hot Deals
-                                </Link>
-                            </div>
-
-                            {/* Contact numbers — matching the reference image */}
-                            <div className="hero-contact-row">
-                                <a href="tel:08036887788" className="hero-contact-chip">
-                                    <i className="fa-solid fa-phone" style={{ fontSize: '0.75rem' }}></i>
-                                    08036887788
-                                </a>
-                                <a href="https://wa.me/2347035062887" target="_blank" rel="noreferrer" className="hero-contact-chip wa">
-                                    <i className="fab fa-whatsapp" style={{ fontSize: '0.9rem' }}></i>
-                                    +234 703 506 2887
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* RIGHT — Full-bleed image panel */}
-                        <div className="hero-right">
-                            <img
-                                className="hero-right-img"
-                                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=85"
-                                alt="Latest iPhone"
-                                loading="eager"
-                            />
-                            {/* Floating label on image */}
-                            <div className="hero-img-label">
-                                <div className="hero-img-label-icon">
-                                    <i className="fa-solid fa-shield-halved"></i>
+                        <div className="hero-grid">
+                            {/* LEFT — text */}
+                            <div className="anim-slide-up">
+                                <div className="hero-eyebrow">
+                                    <span className="dot" />
+                                    Nigeria's No.1 Phone Store — 2026
                                 </div>
-                                <div className="hero-img-label-text">
-                                    <strong>Warranty Included</strong>
-                                    <span>Manufacturer Guarantee</span>
+
+                                <h1 className="hero-title">
+                                    Upgrade Your<br />
+                                    <span className="accent">Phone.</span>
+                                </h1>
+
+                                <p className="hero-sub">
+                                    Brand new &amp; UK used iPhones, laptops, tablets and accessories.
+                                    Nationwide delivery. Pay later with Klump.
+                                </p>
+
+                                <div className="hero-actions">
+                                    <Link to="/products" className="btn-primary">
+                                        <i className="fa-solid fa-bag-shopping"></i> Shop Now
+                                    </Link>
+                                    <Link to="/good-mood-deals" className="btn-ghost">
+                                        <i className="fa-solid fa-bolt" style={{ color: '#E31E24' }}></i> Hot Deals
+                                    </Link>
+                                </div>
+
+                                {/* Contact row */}
+                                <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                                    <a href="tel:08036887788" style={{
+                                        display: 'inline-flex', alignItems: 'center', gap: 6,
+                                        background: 'rgba(26,40,86,0.08)', border: '1px solid rgba(26,40,86,0.2)',
+                                        color: '#1A2856', padding: '0.45rem 1rem', borderRadius: 99,
+                                        fontSize: '0.78rem', fontWeight: 700, fontFamily: 'Outfit, sans-serif',
+                                        letterSpacing: '0.05em', textDecoration: 'none',
+                                    }}>
+                                        <i className="fa-solid fa-phone" style={{ fontSize: '0.7rem' }}></i> 08036887788
+                                    </a>
+                                    <a href="https://wa.me/2347035062887" target="_blank" rel="noreferrer" style={{
+                                        display: 'inline-flex', alignItems: 'center', gap: 6,
+                                        background: '#25D366', color: '#fff', padding: '0.45rem 1rem', borderRadius: 99,
+                                        fontSize: '0.78rem', fontWeight: 700, fontFamily: 'Outfit, sans-serif',
+                                        letterSpacing: '0.05em', textDecoration: 'none',
+                                    }}>
+                                        <i className="fab fa-whatsapp" style={{ fontSize: '0.85rem' }}></i> +234 703 506 2887
+                                    </a>
+                                </div>
+
+                                {/* Stats */}
+                                <div className="hero-stats">
+                                    {[
+                                        { value: '4,800', sup: '+', label: 'Products Listed' },
+                                        { value: '28K',   sup: '+', label: 'Happy Customers' },
+                                        { value: '98',    sup: '%', label: '5-Star Reviews' },
+                                        { value: '24',    sup: '/7', label: 'WhatsApp Support' },
+                                    ].map((s, i) => (
+                                        <div key={i}>
+                                            <div className="stat-value">{s.value}<sup>{s.sup}</sup></div>
+                                            <div className="stat-label">{s.label}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* RIGHT — image visual */}
+                            <div className="hero-visual">
+                                <div className="hero-phone-wrap">
+                                    <div className="hero-phone-bg" />
+                                    <div className="hero-phone-img">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=85"
+                                            alt="Latest iPhone"
+                                            loading="eager"
+                                            style={{ width: '100%', display: 'block' }}
+                                        />
+                                    </div>
+
+                                    {/* Floating chips */}
+                                    <div className="float-chip chip-top-left">
+                                        <div className="float-chip-icon">
+                                            <i className="fa-solid fa-shield-halved"></i>
+                                        </div>
+                                        <div className="float-chip-text">
+                                            <strong>Warranty</strong>
+                                            <span>All devices</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="float-chip chip-bot-right">
+                                        <div className="float-chip-icon">
+                                            <i className="fa-solid fa-truck-fast"></i>
+                                        </div>
+                                        <div className="float-chip-text">
+                                            <strong>Same Day</strong>
+                                            <span>Lagos delivery</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -144,96 +225,72 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* STATS BAR */}
-            <div className="hero-stats-bar">
-                <div className="container">
-                    <div className="hero-stats-inner">
-                        <div className="hero-stat">
-                            <div>
-                                <div className="hero-stat-num">4,800<span>+</span></div>
-                                <div className="hero-stat-label">Products Listed</div>
-                            </div>
-                        </div>
-                        <div className="hero-stat">
-                            <div>
-                                <div className="hero-stat-num">28K<span>+</span></div>
-                                <div className="hero-stat-label">Happy Customers</div>
-                            </div>
-                        </div>
-                        <div className="hero-stat">
-                            <div>
-                                <div className="hero-stat-num">98<span>%</span></div>
-                                <div className="hero-stat-label">5-Star Reviews</div>
-                            </div>
-                        </div>
-                        <div className="hero-stat">
-                            <div>
-                                <div className="hero-stat-num">24<span>/7</span></div>
-                                <div className="hero-stat-label">WhatsApp Support</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* CATEGORY STRIP */}
+            {/* ============================================================
+                CATEGORY BAR
+            ============================================================ */}
             <div className="container">
-                <div className="cat-strip" role="navigation" aria-label="Product categories">
+                <nav className="cat-bar" aria-label="Product categories">
                     {CATEGORIES.map(cat => (
-                        <Link key={cat.label} to={cat.link} className="cat-pill">
+                        <Link key={cat.label} to={cat.link} className="cat-item">
                             <i className={`fa-solid ${cat.icon}`}></i>
-                            {cat.label}
+                            <span>{cat.label}</span>
                         </Link>
                     ))}
-                </div>
+                </nav>
             </div>
 
-            {/* ========================================================
-                GOOD MOOD DEALS — Full-width dark stripe
-            ======================================================== */}
+            {/* ============================================================
+                GOOD MOOD DEALS BANNER
+            ============================================================ */}
             {(goodMoodLoading || goodMoodDeals.length > 0) && (
-                <section className="deal-stripe">
-                    <div className="container">
-                        <div className="deal-stripe-inner">
-                            <div>
-                                <div className="deal-stripe-label">
+                <div className="container">
+                    <div className="deal-banner">
+                        <div className="deal-banner-glow" />
+
+                        <div className="deal-banner-top">
+                            <div className="deal-meta">
+                                <div className="deal-label">
                                     <i className="fa-solid fa-bolt"></i> Flash Deals
                                 </div>
-                                <Link to="/good-mood-deals" style={{ textDecoration: 'none' }}>
-                                    <h2 className="deal-stripe-title">Good Mood Deals</h2>
+                                <h2 className="deal-title">Good Mood Deals</h2>
+                                <p className="deal-sub">Exclusive discounts — limited time only</p>
+                            </div>
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', zIndex: 1 }}>
+                                <DealTimer />
+                                <Link to="/good-mood-deals" className="btn-red">
+                                    View All <i className="fa-solid fa-arrow-right"></i>
                                 </Link>
                             </div>
-                            <Link to="/good-mood-deals" className="deal-view-btn">
-                                View All <i className="fa-solid fa-arrow-right"></i>
-                            </Link>
                         </div>
 
-                        <div className="deal-scroll">
+                        <div className="deal-products-scroll">
                             {goodMoodLoading
                                 ? [1,2,3,4,5].map(i => (
-                                    <div key={i} style={{ flexShrink: 0, width: 180, height: 220, background: 'rgba(255,255,255,0.05)' }} />
+                                    <div key={i} className="deal-product-skeleton" />
                                 ))
                                 : goodMoodDeals.map((product, idx) => (
                                     <div
                                         key={product.id}
-                                        className="deal-card"
+                                        className="deal-product-card"
                                         onClick={() => navigate(`/products/${product.id}`)}
+                                        role="button"
+                                        tabIndex={0}
                                     >
-                                        <div className="deal-card-img">
-                                            <img
-                                                src={product.img || product.images?.[0] || ''}
-                                                alt={product.name}
-                                                loading="lazy"
-                                            />
-                                            {idx === 0 && <span className="deal-card-badge">🔥 Top Deal</span>}
-                                            {idx === 1 && <span className="deal-card-badge">⚡ Hot</span>}
-                                        </div>
-                                        <div className="deal-card-info">
-                                            <p className="deal-card-name">{product.name}</p>
-                                            {product.pss && Number(product.pss) < Number(product.price) && (
-                                                <p className="deal-card-old">₦{Number(product.price).toLocaleString()}</p>
+                                        <div className="deal-product-img">
+                                            <img src={product.img || product.images?.[0] || ''} alt={product.name} loading="lazy" />
+                                            {(idx === 0 || idx === 1) && (
+                                                <div className="deal-product-badge">
+                                                    {idx === 0 ? '🔥 Hot' : '⚡ Sale'}
+                                                </div>
                                             )}
-                                            <p className="deal-card-price">
+                                        </div>
+                                        <div className="deal-product-info">
+                                            <p className="deal-product-name">{product.name}</p>
+                                            {product.pss && Number(product.pss) < Number(product.price) && (
+                                                <p className="deal-product-old">₦{Number(product.price).toLocaleString()}</p>
+                                            )}
+                                            <p className="deal-product-price">
                                                 ₦{Number(product.pss && Number(product.pss) > 0 ? product.pss : product.price).toLocaleString()}
                                             </p>
                                         </div>
@@ -242,19 +299,19 @@ export default function Home() {
                             }
                         </div>
                     </div>
-                </section>
+                </div>
             )}
 
-            {/* ========================================================
-                TRENDING — Editorial numbered section
-            ======================================================== */}
-            <div className="container" style={{ paddingTop: '4rem' }}>
-                <div className="section-row">
-                    <div className="section-label-group">
-                        <span className="section-num">01 — Trending</span>
-                        <h2 className="section-heading">Trending Now<span className="dot">.</span></h2>
+            {/* ============================================================
+                TRENDING / BEST SELLING
+            ============================================================ */}
+            <div className="container">
+                <div className="section-header">
+                    <div className="section-label">
+                        <div className="section-bar" />
+                        <h2 className="section-title">Trending Now</h2>
                     </div>
-                    <Link to="/products" className="section-view-all">
+                    <Link to="/products" className="section-link">
                         View All <i className="fa-solid fa-arrow-right"></i>
                     </Link>
                 </div>
@@ -274,28 +331,29 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* ========================================================
-                FEATURED BENTO GRID
-            ======================================================== */}
+            {/* ============================================================
+                COLLECTIONS (FEATURED)
+            ============================================================ */}
             <div className="container">
-                <div className="section-row">
-                    <div className="section-label-group">
-                        <span className="section-num">02 — Featured</span>
-                        <h2 className="section-heading">Collections<span className="dot">.</span></h2>
+                <div className="section-header">
+                    <div className="section-label">
+                        <div className="section-bar" />
+                        <h2 className="section-title">Collections</h2>
                     </div>
-                    <Link to="/products" className="section-view-all">
+                    <Link to="/products" className="section-link">
                         Browse All <i className="fa-solid fa-arrow-right"></i>
                     </Link>
                 </div>
 
-                {/* Asymmetric bento grid */}
-                <div className="bento-grid">
-                    {/* Large left cell spanning 2 rows */}
-                    <div className="bento-cell bento-cell-span">
-                        <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=75" alt="Premium Tech" />
-                        <div className="bento-cell-overlay"></div>
-                        <div className="bento-cell-content">
-                            <span className="bento-cell-tag"><i className="fa-solid fa-fire"></i> Editor's Pick</span>
+                <div className="featured-grid">
+                    {/* Large Card */}
+                    <div className="featured-card" style={{ minHeight: 380 }}>
+                        <div className="featured-img">
+                            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=75" alt="Premium Tech" loading="lazy" />
+                        </div>
+                        <div className="featured-overlay" />
+                        <div className="featured-content">
+                            <div className="featured-tag"><i className="fa-solid fa-fire"></i> Editor's Pick</div>
                             <h3>Ultimate Productivity Bundle</h3>
                             <p>MacBook Pro M3 + iPad Pro + AirPods — built for creators.</p>
                             <Link to="/products" className="btn-red" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
@@ -304,110 +362,104 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* Top right */}
-                    <div className="bento-cell">
-                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=75" alt="iPhone" />
-                        <div className="bento-cell-overlay"></div>
-                        <div className="bento-cell-content">
-                            <span className="bento-cell-tag"><i className="fa-solid fa-mobile-screen"></i> iPhone</span>
-                            <h3 style={{ fontSize: '1.1rem' }}>Premium iPhone</h3>
-                            <Link to="/products?cat=iPhone" className="deal-view-btn" style={{ fontSize: '0.65rem', padding: '0.4rem 0.875rem' }}>
-                                Explore <i className="fa-solid fa-arrow-right"></i>
-                            </Link>
+                    {/* Right column */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div className="featured-card" style={{ minHeight: 170 }}>
+                            <div className="featured-img">
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=75" alt="iPhone" loading="lazy" />
+                            </div>
+                            <div className="featured-overlay" />
+                            <div className="featured-content">
+                                <div className="featured-tag"><i className="fa-solid fa-mobile-screen"></i> iPhone</div>
+                                <h3 style={{ fontSize: '1.1rem' }}>Premium iPhone</h3>
+                                <Link to="/products?cat=iPhone" className="btn-red" style={{ fontSize: '0.65rem', padding: '0.4rem 0.875rem' }}>
+                                    Explore <i className="fa-solid fa-arrow-right"></i>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Bottom right */}
-                    <div className="bento-cell">
-                        <img src="https://images.unsplash.com/photo-1592899677974-89c095bc68c3?auto=format&fit=crop&w=600&q=75" alt="Accessories" />
-                        <div className="bento-cell-overlay" style={{ background: 'linear-gradient(to top, rgba(100,30,120,0.85) 0%, rgba(100,30,120,0.1) 60%, transparent 100%)' }}></div>
-                        <div className="bento-cell-content">
-                            <span className="bento-cell-tag" style={{ background: '#7C3AED' }}><i className="fa-solid fa-plug"></i> Accessories</span>
-                            <h3 style={{ fontSize: '1.1rem' }}>Essential Add-ons</h3>
-                            <Link to="/products?cat=Accessories" className="deal-view-btn" style={{ fontSize: '0.65rem', padding: '0.4rem 0.875rem' }}>
-                                Explore <i className="fa-solid fa-arrow-right"></i>
-                            </Link>
+                        <div className="featured-card" style={{ minHeight: 170 }}>
+                            <div className="featured-img">
+                                <img src="https://images.unsplash.com/photo-1592899677974-89c095bc68c3?auto=format&fit=crop&w=600&q=75" alt="Accessories" loading="lazy" />
+                            </div>
+                            <div className="featured-overlay" style={{ background: 'linear-gradient(to top, rgba(100,30,120,0.85) 0%, rgba(100,30,120,0.1) 60%, transparent 100%)' }} />
+                            <div className="featured-content">
+                                <div className="featured-tag" style={{ background: '#7C3AED' }}><i className="fa-solid fa-plug"></i> Accessories</div>
+                                <h3 style={{ fontSize: '1.1rem' }}>Essential Add-ons</h3>
+                                <Link to="/products?cat=Accessories" className="btn-red" style={{ fontSize: '0.65rem', padding: '0.4rem 0.875rem' }}>
+                                    Explore <i className="fa-solid fa-arrow-right"></i>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* ========================================================
-                WHY US — Horizontal strip, numbered
-            ======================================================== */}
+            {/* ============================================================
+                WHY ICELL GADGETS
+            ============================================================ */}
             <div className="container">
-                <div className="section-row">
-                    <div className="section-label-group">
-                        <span className="section-num">03 — Why Us</span>
-                        <h2 className="section-heading">Why Icell Gadgets<span className="dot">?</span></h2>
+                <div className="section-header">
+                    <div className="section-label">
+                        <div className="section-bar" />
+                        <h2 className="section-title">Why Icell Gadgets?</h2>
                     </div>
                 </div>
 
-                <div className="why-strip">
-                    {[
-                        { num: '01', icon: 'fa-credit-card', title: 'Flexible Payments', desc: 'Spread payments over 3–24 months with Klump. Zero hidden fees.' },
-                        { num: '02', icon: 'fa-truck-fast', title: 'Express Delivery', desc: 'Same-day dispatch in Lagos. Nationwide door delivery & tracking.' },
-                        { num: '03', icon: 'fa-shield-halved', title: 'Official Warranty', desc: '100% authentic devices. Sealed original packaging. Guaranteed.' },
-                        { num: '04', icon: 'fa-brands fa-whatsapp', title: '24/7 WhatsApp', desc: 'Always reachable on WhatsApp before and after purchase.', wa: true },
-                    ].map((w, i) => (
-                        <div className="why-cell" key={i}>
-                            <div className="why-num">{w.num}</div>
-                            <div className="why-icon" style={w.wa ? { background: '#25D366' } : undefined}>
-                                <i className={`${w.wa ? 'fab' : 'fa-solid'} ${w.icon}`}></i>
+                <div className="props-grid">
+                    {WHY_US.map((w, i) => (
+                        <div className="prop-card" key={i}>
+                            <div className="prop-icon" style={w.wa ? { background: '#25D366', border: 'none' } : {}}>
+                                <i className={`${w.wa ? 'fab' : 'fa-solid'} ${w.icon}`} style={w.wa ? { color: '#fff' } : {}}></i>
                             </div>
-                            <h3 className="why-title">{w.title}</h3>
-                            <p className="why-desc">{w.desc}</p>
+                            <h3 className="prop-title">{w.title}</h3>
+                            <p className="prop-desc">{w.desc}</p>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* ========================================================
+            {/* ============================================================
                 TESTIMONIALS
-            ======================================================== */}
-            <div className="container">
-                <div className="section-row">
-                    <div className="section-label-group">
-                        <span className="section-num">04 — Reviews</span>
-                        <h2 className="section-heading">Customer Reviews<span className="dot">.</span></h2>
+            ============================================================ */}
+            <div className="container testimonials-section">
+                <div className="section-header">
+                    <div className="section-label">
+                        <div className="section-bar" />
+                        <h2 className="section-title">Customer Reviews</h2>
                     </div>
-                    <Link to="/products" className="section-view-all">All Reviews <i className="fa-solid fa-chevron-right"></i></Link>
+                    <Link to="/products" className="section-link">
+                        All Reviews <i className="fa-solid fa-chevron-right"></i>
+                    </Link>
                 </div>
 
-                <div className="testi-section">
-                    <div className="testi-scroll">
-                        {[
-                            { initials: 'AO', name: 'Adebayo Okafor', location: 'Lagos, Nigeria', text: 'Got my iPhone 15 Pro in 4 hours! Same-day delivery was seamless. Icell Gadgets is the absolute best in Lagos.' },
-                            { initials: 'CM', name: 'Chisom Madu', location: 'Abuja, Nigeria', text: 'The monthly payment option made getting a MacBook Pro possible for me. Smooth process start to finish. Highly recommended.' },
-                            { initials: 'EI', name: 'Emeka Ike', location: 'Port Harcourt', text: 'Responded in minutes on WhatsApp. Tracking was perfect. Device exactly as described. Will definitely buy again!' },
-                        ].map((t, i) => (
-                            <div className="testi-card" key={i}>
-                                <div className="testi-stars">★★★★★</div>
-                                <p className="testi-text">{t.text}</p>
-                                <div className="testi-author-row">
-                                    <div className="testi-avatar">{t.initials}</div>
-                                    <div>
-                                        <div className="testi-name">{t.name}</div>
-                                        <div className="testi-loc">{t.location}</div>
-                                    </div>
+                <div className="testi-grid">
+                    {TESTIMONIALS.map((t, i) => (
+                        <div className="testi-card" key={i}>
+                            <div className="testi-quote">"</div>
+                            <div className="testi-stars">★★★★★</div>
+                            <p className="testi-text">{t.text}</p>
+                            <div className="testi-author">
+                                <div className="testi-avatar">{t.initials}</div>
+                                <div>
+                                    <div className="testi-name">{t.name}</div>
+                                    <div className="testi-role">{t.role}</div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            {/* ========================================================
-                NEWSLETTER — Full-bleed red
-            ======================================================== */}
+            {/* ============================================================
+                NEWSLETTER
+            ============================================================ */}
             <section className="newsletter-section">
                 <div className="container">
                     <div className="newsletter-inner">
-                        <div className="newsletter-text">
+                        <div>
                             <p className="newsletter-tag">Stay in the Loop</p>
-                            <h2 className="newsletter-title">
-                                Get Exclusive<br />Deals First.
-                            </h2>
+                            <h2 className="newsletter-title">Get Exclusive<br />Deals First.</h2>
                         </div>
                         <form onSubmit={handleNewsletter} className="newsletter-form">
                             <input
@@ -431,3 +483,34 @@ export default function Home() {
     );
 }
 
+/* Countdown timer for the deals banner */
+function DealTimer() {
+    const [time, setTime] = useState({ h: 5, m: 47, s: 32 });
+
+    useEffect(() => {
+        const id = setInterval(() => {
+            setTime(prev => {
+                let { h, m, s } = prev;
+                s--;
+                if (s < 0) { s = 59; m--; }
+                if (m < 0) { m = 59; h--; }
+                if (h < 0) { h = 23; m = 59; s = 59; }
+                return { h, m, s };
+            });
+        }, 1000);
+        return () => clearInterval(id);
+    }, []);
+
+    const pad = n => String(n).padStart(2, '0');
+
+    return (
+        <div className="deal-timer">
+            {[{ v: time.h, l: 'HRS' }, { v: time.m, l: 'MIN' }, { v: time.s, l: 'SEC' }].map(({ v, l }) => (
+                <div className="timer-block" key={l}>
+                    <div className="timer-num">{pad(v)}</div>
+                    <div className="timer-label">{l}</div>
+                </div>
+            ))}
+        </div>
+    );
+}

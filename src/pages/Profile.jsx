@@ -10,9 +10,9 @@ import OrderTrackingStepper from '../components/OrderTrackingStepper';
 import { INTEREST_RATES_DECIMAL } from '../utils/interestRates';
 
 const NT = {
-  bg: '#0E0E10', card: '#161618', cardSub: '#1A1A1E',
-  border: '#2A2A30', borderHover: 'rgba(212,43,43,0.45)',
-  primary: '#D42B2B', textMain: '#E8E8F0', textMuted: '#707080', textAccent: '#C8C8D4',
+  bg: '#FAFAFA', card: '#FFFFFF', cardSub: '#F8FAFC',
+  border: '#E2E8F0', borderHover: 'rgba(26,40,86,0.3)',
+  primary: '#1A2856', textMain: '#0F172A', textMuted: '#64748B', textAccent: '#1E293B',
 };
 
 function fmt(n) {
@@ -209,7 +209,7 @@ export default function Profile() {
 
         {/* Page Header */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '4px 14px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 12 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#DC2626', padding: '4px 14px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 12 }}>
             <i className="fa-solid fa-user" /> My Account
           </div>
           <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>
@@ -219,7 +219,7 @@ export default function Profile() {
         </div>
 
         {error && (
-          <div style={{ background: 'rgba(212,43,43,0.08)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '0.85rem 1.25rem', borderRadius: 12, marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.85rem' }}>
+          <div style={{ background: 'rgba(212,43,43,0.08)', border: '1px solid rgba(212,43,43,0.3)', color: '#DC2626', padding: '0.85rem 1.25rem', borderRadius: 12, marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.85rem' }}>
             <i className="fas fa-exclamation-circle" /> {error}
           </div>
         )}
@@ -252,7 +252,7 @@ export default function Profile() {
 
           {/* Personal Info */}
           <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 20, overflow: 'hidden' }}>
-            <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ background: '#F8FAFC', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', position: 'relative', overflow: 'hidden' }}>
               <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
               <h2 style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <i className="fa-solid fa-id-card" style={{ color: NT.primary }} /> Personal Information
@@ -286,7 +286,7 @@ export default function Profile() {
           {!isAdmin && (
             <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 20, overflow: 'hidden' }}>
               {/* Section Header */}
-              <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ background: '#F8FAFC', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
                 <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
                 <h2 style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <i className="fa-solid fa-bag-shopping" style={{ color: NT.primary }} /> Order History & Payment Tracking
@@ -495,7 +495,7 @@ export default function Profile() {
 
                                   {/* Progress Bar */}
                                   <div style={{ width: '100%', background: NT.border, height: 5, borderRadius: 99, overflow: 'hidden', marginBottom: 6 }}>
-                                    <div style={{ height: '100%', width: `${pct}%`, background: isComplete ? '#4ade80' : 'linear-gradient(90deg,#D42B2B,#FF6060)', borderRadius: 99, transition: 'width 1s' }} />
+                                    <div style={{ height: '100%', width: `${pct}%`, background: isComplete ? '#4ade80' : 'linear-gradient(90deg,#D42B2B,#DC2626)', borderRadius: 99, transition: 'width 1s' }} />
                                   </div>
                                   <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: '1rem', color: isComplete ? '#4ade80' : NT.textMuted }}>
                                     {isComplete ? <><i className="fas fa-check-circle" style={{ marginRight: 4 }} />Fully Paid</> : `${pct}% paid · Balance: ${fmt(balance)}`}
@@ -507,7 +507,7 @@ export default function Profile() {
                                       <p style={{ fontSize: '0.95rem', fontWeight: 800, color: NT.textMain, marginBottom: 5 }}>
                                         {nextPaymentDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
                                       </p>
-                                      <span style={{ fontSize: '0.6rem', fontWeight: 700, padding: '2px 10px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', background: isOverdue ? 'rgba(212,43,43,0.12)' : 'rgba(74,222,128,0.1)', color: isOverdue ? '#FF6060' : '#4ade80', border: isOverdue ? '1px solid rgba(212,43,43,0.3)' : '1px solid rgba(74,222,128,0.25)' }}>
+                                      <span style={{ fontSize: '0.6rem', fontWeight: 700, padding: '2px 10px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', background: isOverdue ? 'rgba(212,43,43,0.12)' : 'rgba(74,222,128,0.1)', color: isOverdue ? '#DC2626' : '#4ade80', border: isOverdue ? '1px solid rgba(212,43,43,0.3)' : '1px solid rgba(74,222,128,0.25)' }}>
                                         {timerText}
                                       </span>
                                     </div>
@@ -633,7 +633,7 @@ export default function Profile() {
           {/* Trade-Ins & Swaps Section */}
           {!isAdmin && (
             <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 20, overflow: 'hidden', marginTop: '1rem' }}>
-              <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ background: '#F8FAFC', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
                 <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
                 <h2 style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <ArrowLeftRight size={14} style={{ color: NT.primary }} /> Trade-ins & Swaps History

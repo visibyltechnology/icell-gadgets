@@ -39,7 +39,7 @@ export function ProductCard({ product, tagLabel = null, onClick }) {
 
             {/* Info */}
             <div className="p-body">
-                <div className="p-cat">{product.category || 'Gadgets'}</div>
+                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#E31E24', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Outfit, sans-serif' }}>{product.category || 'Gadgets'}</div>
 
                 <h3 className="p-name">{product.name}</h3>
 
@@ -67,7 +67,7 @@ export function ProductCard({ product, tagLabel = null, onClick }) {
                     </div>
 
                     <button
-                        className="p-add-btn"
+                        className="p-cart-btn"
                         aria-label="View"
                         disabled={!inStock}
                         onClick={e => { e.stopPropagation(); if (inStock) onClick?.(); }}
