@@ -116,7 +116,7 @@ export default function ProductDetail() {
   if (error || !product) {
     return (
       <div style={{ minHeight: '100vh', background: '#FAFAFA', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '2rem', fontWeight: 800, color: '#111827', marginBottom: '1rem' }}>{error || 'Product Not Found'}</h2>
+        <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#111827', marginBottom: '1rem' }}>{error || 'Product Not Found'}</h2>
         <Link to="/products" className="btn-outline">Return to Shop</Link>
       </div>
     );
@@ -134,7 +134,7 @@ export default function ProductDetail() {
       
       {/* Breadcrumbs */}
       <div style={{ borderBottom: '1px solid #E5E7EB', background: '#fff' }}>
-        <div className="container" style={{ padding: '1rem 1.5rem', display: 'flex', gap: 10, fontSize: '0.75rem', fontFamily: 'Syne, sans-serif', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <div className="container" style={{ padding: '1rem 1.5rem', display: 'flex', gap: 10, fontSize: '0.75rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
           <Link to="/" style={{ color: '#1A2856' }}>Home</Link>
           <span>/</span>
           <Link to="/products" style={{ color: '#1A2856' }}>Shop</Link>
@@ -173,12 +173,12 @@ export default function ProductDetail() {
           {/* Info */}
           <div className="detail-info-panel">
             {product.tag && (
-              <div style={{ alignSelf: 'flex-start', background: '#E31E24', color: '#fff', fontSize: '0.62rem', fontWeight: 800, padding: '4px 8px', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Syne, sans-serif', marginBottom: '0.5rem' }}>
+              <div style={{ alignSelf: 'flex-start', background: '#E31E24', color: '#fff', fontSize: '0.62rem', fontWeight: 800, padding: '4px 8px', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
                 {product.tag}
               </div>
             )}
 
-            <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: '#111827', margin: 0, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: '#111827', margin: 0, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
               {product.name}
             </h1>
 
@@ -193,7 +193,7 @@ export default function ProductDetail() {
               </span>
             </div>
 
-            <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.75rem', fontWeight: 800, color: '#1A2856', margin: '1rem 0' }}>
+            <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#1A2856', margin: '1rem 0' }}>
               ₦{Number(currentPrice).toLocaleString()}
             </div>
 
@@ -211,7 +211,7 @@ export default function ProductDetail() {
                         background: selectedCondition === cond ? '#1A2856' : '#fff',
                         color: selectedCondition === cond ? '#fff' : '#374151',
                         border: `1.5px solid ${selectedCondition === cond ? '#1A2856' : '#E5E7EB'}`,
-                        fontFamily: 'Syne, sans-serif', fontSize: '0.8rem', fontWeight: 700,
+                        fontSize: '0.8rem', fontWeight: 700,
                         cursor: 'pointer', transition: 'all 0.2s', borderRadius: 2
                       }}
                     >
@@ -236,7 +236,7 @@ export default function ProductDetail() {
                         background: selectedVariantId === v.id ? '#1A2856' : '#fff',
                         color: selectedVariantId === v.id ? '#fff' : '#374151',
                         border: `1.5px solid ${selectedVariantId === v.id ? '#1A2856' : '#E5E7EB'}`,
-                        fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', fontWeight: 600,
+                        fontSize: '0.8rem', fontWeight: 600,
                         cursor: 'pointer', transition: 'all 0.2s', borderRadius: 2
                       }}
                     >
@@ -312,7 +312,7 @@ export default function ProductDetail() {
             {activeTab === 'reviews' && (
               <div>
                 <div style={{ marginBottom: '2.5rem', background: '#FAFAFA', padding: '1.5rem', border: '1px solid #E5E7EB' }}>
-                  <h4 style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.1rem', fontWeight: 800, margin: '0 0 1rem' }}>Write a Review</h4>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, margin: '0 0 1rem' }}>Write a Review</h4>
                   <form onSubmit={handleReviewSubmit}>
                     <div style={{ display: 'flex', gap: 8, marginBottom: '1rem', color: '#F59E0B', fontSize: '1.1rem' }}>
                       {[1,2,3,4,5].map(star => (
@@ -323,7 +323,7 @@ export default function ProductDetail() {
                       value={newReviewText}
                       onChange={e => setNewReviewText(e.target.value)}
                       placeholder="Share your thoughts about this product..."
-                      style={{ width: '100%', padding: '1rem', border: '1px solid #E5E7EB', borderRadius: 2, background: '#fff', outline: 'none', fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', minHeight: 100, marginBottom: '1rem' }}
+                      style={{ width: '100%', padding: '1rem', border: '1px solid #E5E7EB', borderRadius: 2, background: '#fff', outline: 'none', fontSize: '0.875rem', minHeight: 100, marginBottom: '1rem' }}
                       onFocus={e => e.target.style.borderColor = '#1A2856'}
                       onBlur={e => e.target.style.borderColor = '#E5E7EB'}
                     ></textarea>
@@ -337,7 +337,7 @@ export default function ProductDetail() {
                   {reviews.length > 0 ? reviews.map(rev => (
                     <div key={rev.id} style={{ borderBottom: '1px solid #E5E7EB', paddingBottom: '1.5rem' }}>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                        <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.9rem', color: '#111827' }}>{rev.userName}</div>
+                        <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#111827' }}>{rev.userName}</div>
                         <div style={{ display: 'flex', gap: 2, color: '#F59E0B', fontSize: '0.75rem' }}>
                           {[1,2,3,4,5].map(s => <i key={s} className={s <= rev.rating ? "fas fa-star" : "far fa-star"}></i>)}
                         </div>
@@ -366,3 +366,4 @@ export default function ProductDetail() {
     </div>
   );
 }
+

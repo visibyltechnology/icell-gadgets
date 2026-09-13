@@ -157,7 +157,7 @@ export default function Shop() {
                         {search ? `Search Results` : 'Catalog'}
                     </div>
                     <h1 style={{
-                        fontFamily: 'Syne, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                         fontWeight: 800, color: '#fff', letterSpacing: '-0.04em', lineHeight: 1,
                         margin: '0 0 1rem'
                     }}>
@@ -281,7 +281,7 @@ export default function Shop() {
                         <div style={{ width: 64, height: 64, background: '#F3F4F6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
                             <i className="fa-solid fa-search" style={{ fontSize: '1.5rem', color: '#9CA3AF' }}></i>
                         </div>
-                        <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.5rem', fontWeight: 800, color: '#111827', margin: '0 0 0.5rem' }}>
+                        <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#111827', margin: '0 0 0.5rem' }}>
                             No products found
                         </h3>
                         <p style={{ color: '#6B7280', fontSize: '0.9rem', marginBottom: '2rem' }}>
@@ -298,3 +298,4 @@ export default function Shop() {
         </div>
     );
 }
+

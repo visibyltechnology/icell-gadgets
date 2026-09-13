@@ -75,7 +75,7 @@ export default function Login() {
                 <i className="fa-solid fa-mobile-screen" style={{ color: '#fff', fontSize: '1.1rem' }}></i>
               </div>
               <div>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.4rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em', lineHeight: 1 }}>
                   ICELL <span style={{ color: '#E31E24' }}>GADGETS</span>
                 </div>
                 <div style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.3em', textTransform: 'uppercase', marginTop: 3 }}>
@@ -86,7 +86,7 @@ export default function Login() {
           </Link>
 
           {/* Big headline */}
-          <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '3rem', fontWeight: 800, color: '#fff', lineHeight: 0.95, letterSpacing: '-0.04em', marginBottom: '1.5rem' }}>
+          <div style={{ fontSize: '3rem', fontWeight: 800, color: '#fff', lineHeight: 0.95, letterSpacing: '-0.04em', marginBottom: '1.5rem' }}>
             Welcome<br /><span style={{ color: '#E31E24' }}>Back.</span>
           </div>
           <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.9rem', lineHeight: 1.75, maxWidth: '22rem', marginBottom: '3rem' }}>
@@ -100,27 +100,27 @@ export default function Login() {
               { num: '4.8★', label: 'Rating' },
             ].map((s, i) => (
               <div key={i}>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.5rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em' }}>{s.num}</div>
-                <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: 'Syne, sans-serif', fontWeight: 700 }}>{s.label}</div>
+                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em' }}>{s.num}</div>
+                <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 700 }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* RIGHT — Form */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 2rem', background: '#fff' }}>
+        <div className="flex items-center justify-center p-4 sm:p-8 md:p-12 bg-white w-full">
           <div style={{ width: '100%', maxWidth: 400 }}>
 
             {/* Mobile brand */}
             <div className="md:hidden" style={{ marginBottom: '2rem', textAlign: 'center' }}>
               <Link to="/" style={{ textDecoration: 'none' }}>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.4rem', fontWeight: 800, color: '#1A2856', letterSpacing: '-0.03em' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1A2856', letterSpacing: '-0.03em' }}>
                   ICELL <span style={{ color: '#E31E24' }}>GADGETS</span>
                 </div>
               </Link>
             </div>
 
-            <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: '2rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.04em', margin: '0 0 0.25rem' }}>
+            <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.04em', margin: '0 0 0.25rem' }}>
               Sign In
             </h1>
             <p style={{ color: '#6B7280', fontSize: '0.875rem', marginBottom: '2rem' }}>
@@ -164,7 +164,7 @@ export default function Login() {
               <div className="form-field">
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <label className="form-label">Password</label>
-                  <Link to="/forgot-password" style={{ fontSize: '0.75rem', color: '#1A2856', fontWeight: 700, fontFamily: 'Syne, sans-serif' }}>
+                  <Link to="/forgot-password" style={{ fontSize: '0.75rem', color: '#1A2856', fontWeight: 700, }}>
                     Forgot?
                   </Link>
                 </div>
@@ -202,11 +202,11 @@ export default function Login() {
               </button>
             </form>
 
-            <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem', color: '#9CA3AF', fontFamily: 'Syne, sans-serif', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem sm:gap-2rem' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem', color: '#9CA3AF', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 <i className="fas fa-lock" style={{ color: '#1A2856' }}></i> Secure Login
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem', color: '#9CA3AF', fontFamily: 'Syne, sans-serif', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.72rem', color: '#9CA3AF', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 <i className="fas fa-shield-alt" style={{ color: '#059669' }}></i> 100% Safe
               </span>
             </div>
@@ -217,3 +217,4 @@ export default function Login() {
     </div>
   );
 }
+

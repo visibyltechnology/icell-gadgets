@@ -24,8 +24,7 @@ function PaymentBadge({ paymentChoice, installments, paymentFrequency }) {
   return (
     <span style={{
       display: 'inline-block', fontSize: '0.55rem', fontWeight: 800, padding: '3px 8px', borderRadius: 5,
-      textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif',
-      background: isInstallment ? 'rgba(96,165,250,0.12)' : 'rgba(74,222,128,0.1)',
+      textTransform: 'uppercase', letterSpacing: '0.1em', background: isInstallment ? 'rgba(96,165,250,0.12)' : 'rgba(74,222,128,0.1)',
       color: isInstallment ? '#60a5fa' : '#4ade80',
       border: isInstallment ? '1px solid rgba(96,165,250,0.3)' : '1px solid rgba(74,222,128,0.25)',
     }}>
@@ -154,7 +153,7 @@ export default function Profile() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
           <div style={{ width: 48, height: 48, border: `3px solid ${NT.border}`, borderTopColor: NT.primary, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
           <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-          <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.8rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Loading Profile...</p>
+          <p style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Loading Profile...</p>
         </div>
       </main>
     );
@@ -210,10 +209,10 @@ export default function Profile() {
 
         {/* Page Header */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '4px 14px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'Rajdhani, sans-serif', marginBottom: 12 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '4px 14px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 12 }}>
             <i className="fa-solid fa-user" /> My Account
           </div>
-          <h1 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>
+          <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>
             Welcome Back{profileData ? `, ${profileData.firstName}` : ''}!
           </h1>
           <p style={{ color: NT.textMuted, fontSize: '0.875rem' }}>Manage your orders, payments, and account settings</p>
@@ -243,8 +242,8 @@ export default function Profile() {
                     <i className={`fas ${stat.icon}`} style={{ color: stat.color, fontSize: '1.2rem' }} />
                   </div>
                   <div>
-                    <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 4 }}>{stat.label}</p>
-                    <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.5rem', fontWeight: 800, color: NT.textMain, lineHeight: 1 }}>{stat.value}</p>
+                    <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 4 }}>{stat.label}</p>
+                    <p style={{ fontSize: '1.5rem', fontWeight: 800, color: NT.textMain, lineHeight: 1 }}>{stat.value}</p>
                   </div>
                 </div>
               ))}
@@ -255,7 +254,7 @@ export default function Profile() {
           <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 20, overflow: 'hidden' }}>
             <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', position: 'relative', overflow: 'hidden' }}>
               <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
-              <h2 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <h2 style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <i className="fa-solid fa-id-card" style={{ color: NT.primary }} /> Personal Information
               </h2>
             </div>
@@ -267,10 +266,10 @@ export default function Profile() {
                       onMouseEnter={e => e.currentTarget.style.borderColor = NT.borderHover}
                       onMouseLeave={e => e.currentTarget.style.borderColor = NT.border}
                     >
-                      <p style={{ fontSize: '0.55rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 5 }}>
+                      <p style={{ fontSize: '0.55rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 5 }}>
                         <i className={`fas ${field.icon}`} style={{ color: NT.primary }} /> {field.label}
                       </p>
-                      <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.95rem', fontWeight: 700, color: field.highlight ? '#F0A500' : NT.textMain }}>
+                      <p style={{ fontSize: '0.95rem', fontWeight: 700, color: field.highlight ? '#F0A500' : NT.textMain }}>
                         {field.value}
                         {field.highlight === false && <i className="fas fa-check-circle" style={{ color: '#4ade80', marginLeft: 6, fontSize: '0.8rem' }} />}
                       </p>
@@ -289,7 +288,7 @@ export default function Profile() {
               {/* Section Header */}
               <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
                 <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
-                <h2 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h2 style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <i className="fa-solid fa-bag-shopping" style={{ color: NT.primary }} /> Order History & Payment Tracking
                 </h2>
 
@@ -301,7 +300,7 @@ export default function Profile() {
                       <input
                         type="text" placeholder="Search orders..." value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
-                        style={{ background: NT.bg, border: `1px solid ${NT.border}`, borderRadius: 8, padding: '0.5rem 0.75rem 0.5rem 2rem', color: NT.textMain, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', outline: 'none', width: 180 }}
+                        style={{ background: NT.bg, border: `1px solid ${NT.border}`, borderRadius: 8, padding: '0.5rem 0.75rem 0.5rem 2rem', color: NT.textMain, fontSize: '0.75rem', outline: 'none', width: 180 }}
                         onFocus={e => e.target.style.borderColor = NT.primary}
                         onBlur={e => e.target.style.borderColor = NT.border}
                       />
@@ -309,7 +308,7 @@ export default function Profile() {
                     {/* Status filter */}
                     <select
                       value={statusFilter} onChange={e => setStatusFilter(e.target.value)}
-                      style={{ background: NT.bg, border: `1px solid ${NT.border}`, borderRadius: 8, padding: '0.5rem 0.75rem', color: NT.textMuted, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', outline: 'none', cursor: 'pointer' }}
+                      style={{ background: NT.bg, border: `1px solid ${NT.border}`, borderRadius: 8, padding: '0.5rem 0.75rem', color: NT.textMuted, fontSize: '0.75rem', outline: 'none', cursor: 'pointer' }}
                     >
                       <option>All Orders</option>
                       <option>Completed</option>
@@ -320,7 +319,7 @@ export default function Profile() {
                       <SlidersHorizontal size={13} style={{ color: '#505060', flexShrink: 0 }} />
                       <select
                         value={sortBy} onChange={e => setSortBy(e.target.value)}
-                        style={{ background: 'transparent', border: 'none', color: NT.textMuted, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', outline: 'none', cursor: 'pointer' }}
+                        style={{ background: 'transparent', border: 'none', color: NT.textMuted, fontSize: '0.75rem', outline: 'none', cursor: 'pointer' }}
                       >
                         <option>Date (Newest First)</option>
                         <option>Date (Oldest First)</option>
@@ -341,7 +340,7 @@ export default function Profile() {
                     </p>
                     <Link
                       to="/products"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', boxShadow: '0 6px 20px rgba(212,43,43,0.3)' }}
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', boxShadow: '0 6px 20px rgba(212,43,43,0.3)' }}
                     >
                       <i className="fa-solid fa-bag-shopping" /> Start Shopping
                     </Link>
@@ -393,18 +392,17 @@ export default function Profile() {
                             onClick={() => toggleOrderExpand(order.id)}
                           >
                             <div>
-                              <span style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', display: 'block', marginBottom: 3 }}>
+                              <span style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: 3 }}>
                                 {order.createdAt?.toDate().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                               </span>
-                              <strong style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: NT.textAccent }}>
+                              <strong style={{ fontSize: '0.85rem', color: NT.textAccent }}>
                                 #{order.id.slice(0, 14)}
                               </strong>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                               <span style={{
                                 display: 'inline-flex', alignItems: 'center', gap: 5, padding: '4px 10px', borderRadius: 8,
-                                fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'Rajdhani, sans-serif',
-                                background: isComplete ? 'rgba(74,222,128,0.1)' : 'rgba(240,165,0,0.1)',
+                                fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', background: isComplete ? 'rgba(74,222,128,0.1)' : 'rgba(240,165,0,0.1)',
                                 color: isComplete ? '#4ade80' : '#F0A500',
                                 border: isComplete ? '1px solid rgba(74,222,128,0.25)' : '1px solid rgba(240,165,0,0.25)',
                               }}>
@@ -422,12 +420,12 @@ export default function Profile() {
                               {/* Tracking */}
                               <div style={{ padding: '1.25rem 1.5rem', borderBottom: `1px solid ${NT.border}` }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                                  <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.7rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', margin: 0 }}>
+                                  <h3 style={{ fontSize: '0.7rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', margin: 0 }}>
                                     Delivery Tracking
                                   </h3>
                                   <Link
                                     to={`/delivery?orderId=${order.id}`}
-                                    style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: NT.primary, fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 8, textDecoration: 'none', transition: 'all 0.2s' }}
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: NT.primary, fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 8, textDecoration: 'none', transition: 'all 0.2s' }}
                                     onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,43,43,0.18)'}
                                     onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,43,43,0.1)'}
                                   >
@@ -448,7 +446,7 @@ export default function Profile() {
                               <div style={{ display: 'flex', flexWrap: 'wrap', borderBottom: `1px solid ${NT.border}` }}>
                                 {/* Items */}
                                 <div style={{ flex: '1 1 280px', padding: '1.25rem 1.5rem', borderRight: `1px solid ${NT.border}` }}>
-                                  <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1rem' }}>
+                                  <h3 style={{ fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1rem' }}>
                                     Items in Order
                                   </h3>
                                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
@@ -466,11 +464,11 @@ export default function Profile() {
                                           </p>
                                           <PaymentBadge paymentChoice={item.paymentChoice} installments={item.installments} paymentFrequency={item.paymentFrequency} />
                                           {item.paymentChoice === 'installment' && (item.periodPayment || item.monthlyPayment) ? (
-                                            <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.8rem', fontWeight: 700, color: NT.textAccent, marginTop: 6 }}>
+                                            <p style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textAccent, marginTop: 6 }}>
                                               {fmt((item.periodPayment || item.monthlyPayment) * item.quantity)}<span style={{ color: NT.textMuted, fontWeight: 500 }}>/{item.paymentFrequency === 'weekly' ? 'wk' : 'mo'}</span>
                                             </p>
                                           ) : item.paymentChoice === 'full' ? (
-                                            <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.85rem', fontWeight: 700, color: NT.textMain, marginTop: 6 }}>
+                                            <p style={{ fontSize: '0.85rem', fontWeight: 700, color: NT.textMain, marginTop: 6 }}>
                                               {fmt(item.price * item.quantity)}
                                             </p>
                                           ) : null}
@@ -482,34 +480,34 @@ export default function Profile() {
 
                                 {/* Payment Summary */}
                                 <div style={{ width: 280, flexShrink: 0, padding: '1.25rem 1.5rem', background: NT.bg }}>
-                                  <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1rem' }}>
+                                  <h3 style={{ fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1rem' }}>
                                     Payment Summary
                                   </h3>
 
                                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, fontSize: '0.8rem' }}>
                                     <span style={{ color: NT.textMuted }}>Order Total:</span>
-                                    <strong style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, color: NT.textMain }}>{fmt(order.totalAmount)}</strong>
+                                    <strong style={{ fontWeight: 700, color: NT.textMain }}>{fmt(order.totalAmount)}</strong>
                                   </div>
                                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', fontSize: '0.8rem' }}>
                                     <span style={{ color: NT.textMuted }}>Paid So Far:</span>
-                                    <strong style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, color: '#60a5fa' }}>{fmt(order.amountPaid)}</strong>
+                                    <strong style={{ fontWeight: 700, color: '#60a5fa' }}>{fmt(order.amountPaid)}</strong>
                                   </div>
 
                                   {/* Progress Bar */}
                                   <div style={{ width: '100%', background: NT.border, height: 5, borderRadius: 99, overflow: 'hidden', marginBottom: 6 }}>
                                     <div style={{ height: '100%', width: `${pct}%`, background: isComplete ? '#4ade80' : 'linear-gradient(90deg,#D42B2B,#FF6060)', borderRadius: 99, transition: 'width 1s' }} />
                                   </div>
-                                  <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: '1rem', color: isComplete ? '#4ade80' : NT.textMuted }}>
+                                  <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: '1rem', color: isComplete ? '#4ade80' : NT.textMuted }}>
                                     {isComplete ? <><i className="fas fa-check-circle" style={{ marginRight: 4 }} />Fully Paid</> : `${pct}% paid · Balance: ${fmt(balance)}`}
                                   </p>
 
                                   {!isComplete && nextPaymentDate && (
                                     <div style={{ background: NT.card, border: `1px solid ${isOverdue ? 'rgba(212,43,43,0.3)' : NT.border}`, borderRadius: 10, padding: '0.75rem', textAlign: 'center', marginBottom: '1rem' }}>
-                                      <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 4 }}>Next Payment Due</p>
-                                      <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.95rem', fontWeight: 800, color: NT.textMain, marginBottom: 5 }}>
+                                      <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>Next Payment Due</p>
+                                      <p style={{ fontSize: '0.95rem', fontWeight: 800, color: NT.textMain, marginBottom: 5 }}>
                                         {nextPaymentDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
                                       </p>
-                                      <span style={{ fontSize: '0.6rem', fontWeight: 700, padding: '2px 10px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', background: isOverdue ? 'rgba(212,43,43,0.12)' : 'rgba(74,222,128,0.1)', color: isOverdue ? '#FF6060' : '#4ade80', border: isOverdue ? '1px solid rgba(212,43,43,0.3)' : '1px solid rgba(74,222,128,0.25)' }}>
+                                      <span style={{ fontSize: '0.6rem', fontWeight: 700, padding: '2px 10px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', background: isOverdue ? 'rgba(212,43,43,0.12)' : 'rgba(74,222,128,0.1)', color: isOverdue ? '#FF6060' : '#4ade80', border: isOverdue ? '1px solid rgba(212,43,43,0.3)' : '1px solid rgba(74,222,128,0.25)' }}>
                                         {timerText}
                                       </span>
                                     </div>
@@ -520,7 +518,7 @@ export default function Profile() {
                                       <button
                                         onClick={() => handleContinuePayment(order, defaultCustomAmount)}
                                         disabled={loading}
-                                        style={{ width: '100%', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', border: 'none', borderRadius: 10, padding: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 14px rgba(212,43,43,0.3)', opacity: loading ? 0.7 : 1, transition: 'all 0.2s' }}
+                                        style={{ width: '100%', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', border: 'none', borderRadius: 10, padding: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 14px rgba(212,43,43,0.3)', opacity: loading ? 0.7 : 1, transition: 'all 0.2s' }}
                                       >
                                         {loading ? <i className="fas fa-spinner fa-spin" /> : <i className="fas fa-credit-card" />}
                                         Pay {fmt(defaultCustomAmount)}
@@ -528,7 +526,7 @@ export default function Profile() {
 
                                       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                                         <div style={{ flex: 1, height: 1, background: NT.border }} />
-                                        <span style={{ color: NT.textMuted, fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', flexShrink: 0 }}>or custom</span>
+                                        <span style={{ color: NT.textMuted, fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', flexShrink: 0 }}>or custom</span>
                                         <div style={{ flex: 1, height: 1, background: NT.border }} />
                                       </div>
 
@@ -540,7 +538,7 @@ export default function Profile() {
                                             value={currentCustomAmount}
                                             onChange={e => setCustomAmounts(prev => ({ ...prev, [order.id]: Number(e.target.value) }))}
                                             max={balance} min={1}
-                                            style={{ width: '100%', background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 9, padding: '0.6rem 0.75rem 0.6rem 1.6rem', color: NT.textMain, fontSize: '0.8rem', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, outline: 'none' }}
+                                            style={{ width: '100%', background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 9, padding: '0.6rem 0.75rem 0.6rem 1.6rem', color: NT.textMain, fontSize: '0.8rem', fontWeight: 700, outline: 'none' }}
                                             onFocus={e => e.target.style.borderColor = NT.primary}
                                             onBlur={e => e.target.style.borderColor = NT.border}
                                           />
@@ -548,7 +546,7 @@ export default function Profile() {
                                         <button
                                           onClick={() => handleContinuePayment(order, currentCustomAmount)}
                                           disabled={loading || currentCustomAmount <= 0 || currentCustomAmount > balance}
-                                          style={{ background: 'rgba(212,43,43,0.15)', border: '1px solid rgba(212,43,43,0.4)', color: NT.primary, fontFamily: 'Rajdhani, sans-serif', fontWeight: 800, fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0 14px', borderRadius: 9, cursor: 'pointer', opacity: (loading || currentCustomAmount <= 0 || currentCustomAmount > balance) ? 0.5 : 1, transition: 'all 0.2s' }}
+                                          style={{ background: 'rgba(212,43,43,0.15)', border: '1px solid rgba(212,43,43,0.4)', color: NT.primary, fontWeight: 800, fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0 14px', borderRadius: 9, cursor: 'pointer', opacity: (loading || currentCustomAmount <= 0 || currentCustomAmount > balance) ? 0.5 : 1, transition: 'all 0.2s' }}
                                           onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,43,43,0.25)'}
                                           onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,43,43,0.15)'}
                                         >
@@ -565,10 +563,10 @@ export default function Profile() {
                                 <div style={{ padding: '1.25rem 1.5rem' }}>
                                   <div style={{ border: `1px solid ${NT.border}`, borderRadius: 12, overflow: 'hidden' }}>
                                     <div style={{ background: NT.bg, borderBottom: `1px solid ${NT.border}`, padding: '0.75rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-                                      <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.7rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+                                      <span style={{ fontSize: '0.7rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
                                         Payment Schedule — {maxPeriods} {isWeekly ? 'Weeks' : 'Months'}
                                       </span>
-                                      <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.65rem', fontWeight: 700, color: NT.textAccent, background: NT.card, border: `1px solid ${NT.border}`, padding: '2px 10px', borderRadius: 6 }}>
+                                      <span style={{ fontSize: '0.65rem', fontWeight: 700, color: NT.textAccent, background: NT.card, border: `1px solid ${NT.border}`, padding: '2px 10px', borderRadius: 6 }}>
                                         {periodsPaid} of {maxPeriods} paid · {fmt(combinedPeriodPayment)}/{isWeekly ? 'wk' : 'mo'}
                                       </span>
                                     </div>
@@ -594,23 +592,23 @@ export default function Profile() {
 
                                         return (
                                           <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '0.75rem 1.25rem', background: rowBg, borderBottom: idx < maxPeriods - 1 ? `1px solid ${NT.border}` : 'none', transition: 'background 0.2s' }}>
-                                            <div style={{ width: 28, height: 28, borderRadius: '50%', background: dotColor, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', fontWeight: 800, color: status === 'unpaid' ? NT.textMuted : '#0E0E10', flexShrink: 0, fontFamily: 'Rajdhani, sans-serif' }}>
+                                            <div style={{ width: 28, height: 28, borderRadius: '50%', background: dotColor, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', fontWeight: 800, color: status === 'unpaid' ? NT.textMuted : '#0E0E10', flexShrink: 0, }}>
                                               {periodNum}
                                             </div>
                                             <div style={{ flex: 1 }}>
-                                              <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, marginBottom: 2 }}>
+                                              <p style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, marginBottom: 2 }}>
                                                 {isWeekly ? 'Week' : 'Month'} {periodNum}
                                                 {status === 'partial' && <span style={{ marginLeft: 8, fontSize: '0.65rem', color: '#F0A500', fontWeight: 500 }}>Remaining: {fmt(combinedPeriodPayment - excessPaid)}</span>}
                                               </p>
-                                              <p style={{ fontSize: '0.65rem', color: NT.textMuted, fontFamily: 'Rajdhani, sans-serif' }}>
+                                              <p style={{ fontSize: '0.65rem', color: NT.textMuted, }}>
                                                 Due: {periodDate ? periodDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '—'}
                                               </p>
                                             </div>
                                             <div style={{ textAlign: 'right' }}>
-                                              <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.85rem', fontWeight: 700, color: NT.textMain, marginBottom: 4 }}>
+                                              <p style={{ fontSize: '0.85rem', fontWeight: 700, color: NT.textMain, marginBottom: 4 }}>
                                                 {status === 'paid' ? fmt(combinedPeriodPayment) : status === 'partial' ? <span><span style={{ color: '#F0A500' }}>{fmt(excessPaid)}</span> <span style={{ fontSize: '0.65rem', color: NT.textMuted }}>of {fmt(combinedPeriodPayment)}</span></span> : fmt(combinedPeriodPayment)}
                                               </p>
-                                              <span style={{ fontSize: '0.55rem', fontWeight: 800, padding: '2px 8px', borderRadius: 5, textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'Rajdhani, sans-serif', background: badgeColor.bg, color: badgeColor.color, border: `1px solid ${badgeColor.border}`, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                                              <span style={{ fontSize: '0.55rem', fontWeight: 800, padding: '2px 8px', borderRadius: 5, textTransform: 'uppercase', letterSpacing: '0.08em', background: badgeColor.bg, color: badgeColor.color, border: `1px solid ${badgeColor.border}`, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                                                 <i className={`fas ${statusIcon}`} style={{ fontSize: '0.5rem' }} /> {statusLabel}
                                               </span>
                                             </div>
@@ -637,7 +635,7 @@ export default function Profile() {
             <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 20, overflow: 'hidden', marginTop: '1rem' }}>
               <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.25rem 1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
                 <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
-                <h2 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <h2 style={{ fontSize: '0.8rem', fontWeight: 700, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.2em', margin: 0, position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <ArrowLeftRight size={14} style={{ color: NT.primary }} /> Trade-ins & Swaps History
                 </h2>
               </div>
@@ -651,7 +649,7 @@ export default function Profile() {
                     </p>
                     <Link
                       to="/swap"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,43,43,0.1)', color: NT.primary, border: '1px solid rgba(212,43,43,0.3)', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none' }}
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,43,43,0.1)', color: NT.primary, border: '1px solid rgba(212,43,43,0.3)', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none' }}
                     >
                       <ArrowLeftRight size={14} /> Start a Swap
                     </Link>
@@ -673,19 +671,19 @@ export default function Profile() {
                                 <ArrowLeftRight size={18} />
                               </div>
                               <div>
-                                <p style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.95rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                                <p style={{ fontSize: '0.95rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                                   {swap.intent === 'sell' ? 'Sell Request' : 'Swap Request'}
                                 </p>
                                 <p style={{ fontSize: '0.7rem', color: NT.textMuted }}>
                                   {swap.createdAt?.toDate ? swap.createdAt.toDate().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '—'} 
                                   <span style={{ margin: '0 6px', color: NT.border }}>|</span> 
-                                  <span style={{ fontFamily: 'mono', color: NT.primary, fontWeight: 700 }}>{swap.referenceId}</span>
+                                  <span style={{ color: NT.primary, fontWeight: 700 }}>{swap.referenceId}</span>
                                 </p>
                               </div>
                             </div>
                             
                             <div style={{ textAlign: 'right' }}>
-                              <span style={{ fontSize: '0.6rem', fontWeight: 800, padding: '4px 10px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', background: statusBadge.bg, color: statusBadge.color, border: `1px solid ${statusBadge.border}` }}>
+                              <span style={{ fontSize: '0.6rem', fontWeight: 800, padding: '4px 10px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '0.1em', background: statusBadge.bg, color: statusBadge.color, border: `1px solid ${statusBadge.border}` }}>
                                 {swap.status}
                               </span>
                             </div>
@@ -693,7 +691,7 @@ export default function Profile() {
                           
                           <div style={{ padding: '1.25rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                             <div>
-                              <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 4 }}>
+                              <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
                                 Devices Submitted
                               </p>
                               <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -707,7 +705,7 @@ export default function Profile() {
                             
                             {swap.intent === 'swap' && swap.targetProductName && (
                               <div>
-                                <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 4 }}>
+                                <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
                                   Target Upgrade
                                 </p>
                                 <p style={{ fontSize: '0.85rem', color: '#4ade80', fontWeight: 700 }}>
@@ -717,10 +715,10 @@ export default function Profile() {
                             )}
 
                             <div>
-                              <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 4 }}>
+                              <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
                                 Estimated Value
                               </p>
-                              <p style={{ fontSize: '1rem', color: NT.textMain, fontWeight: 800, fontFamily: 'Rajdhani, sans-serif' }}>
+                              <p style={{ fontSize: '1rem', color: NT.textMain, fontWeight: 800, }}>
                                 {swap.estimatedValue ? fmt(swap.estimatedValue) : 'Manual Quote Pending'}
                               </p>
                             </div>
@@ -740,3 +738,4 @@ export default function Profile() {
     </main>
   );
 }
+

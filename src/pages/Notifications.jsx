@@ -130,12 +130,12 @@ function NotificationsPage() {
           {/* Content */}
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 6, gap: 8 }}>
-              <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1rem', fontWeight: 700, color: colors.accent, margin: 0, lineHeight: 1.3 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 700, color: colors.accent, margin: 0, lineHeight: 1.3 }}>
                 {notification.title}
               </h3>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
                 {isUnread && (
-                  <span style={{ background: colors.accent, color: '#0E0E10', fontSize: '0.55rem', fontWeight: 800, padding: '2px 8px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif' }}>
+                  <span style={{ background: colors.accent, color: '#0E0E10', fontSize: '0.55rem', fontWeight: 800, padding: '2px 8px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.1em', }}>
                     New
                   </span>
                 )}
@@ -158,8 +158,8 @@ function NotificationsPage() {
             {notification.type === NOTIFICATION_TYPES.ORDER_OTP && notification.metadata?.otp_code && (
               <div style={{ background: NT.bg, border: `1px solid ${colors.border}`, borderRadius: 10, padding: '0.75rem 1rem', display: 'inline-flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
                 <div>
-                  <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Rajdhani, sans-serif', marginBottom: 4 }}>Delivery OTP</p>
-                  <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.6rem', fontWeight: 800, letterSpacing: '0.2em', color: colors.accent }}>
+                  <p style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>Delivery OTP</p>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, letterSpacing: '0.2em', color: colors.accent }}>
                     {showOTPCode[notification.id] ? notification.metadata.otp_code : '••••'}
                   </div>
                 </div>
@@ -174,7 +174,7 @@ function NotificationsPage() {
                   </button>
                   <button
                     onClick={e => { e.stopPropagation(); handleCopyOTP(notification.metadata.otp_code); }}
-                    style={{ height: 34, background: colors.accent, border: 'none', borderRadius: 8, cursor: 'pointer', color: '#0E0E10', fontSize: '0.7rem', fontWeight: 800, padding: '0 12px', display: 'flex', alignItems: 'center', gap: 5, fontFamily: 'Rajdhani, sans-serif', textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'opacity 0.2s' }}
+                    style={{ height: 34, background: colors.accent, border: 'none', borderRadius: 8, cursor: 'pointer', color: '#0E0E10', fontSize: '0.7rem', fontWeight: 800, padding: '0 12px', display: 'flex', alignItems: 'center', gap: 5, textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'opacity 0.2s' }}
                     onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '1'}
                   >
@@ -187,7 +187,7 @@ function NotificationsPage() {
             {/* Order meta */}
             {notification.metadata?.order_id && (
               <div style={{ background: NT.bg, border: `1px solid ${NT.border}`, borderRadius: 8, padding: '0.5rem 0.75rem', marginBottom: '0.5rem', display: 'inline-block' }}>
-                <p style={{ fontSize: '0.7rem', color: NT.textMuted, fontFamily: 'Rajdhani, sans-serif' }}>
+                <p style={{ fontSize: '0.7rem', color: NT.textMuted, }}>
                   <strong style={{ color: NT.textAccent }}>Order:</strong> {notification.metadata.order_id}
                   {notification.metadata?.amount && (
                     <> &nbsp;·&nbsp; <strong style={{ color: NT.textAccent }}>Amount:</strong> ₦{Number(notification.metadata.amount).toLocaleString()}</>
@@ -196,7 +196,7 @@ function NotificationsPage() {
               </div>
             )}
 
-            <p style={{ fontSize: '0.65rem', color: '#505060', marginTop: 6, fontFamily: 'Rajdhani, sans-serif', letterSpacing: '0.05em' }}>
+            <p style={{ fontSize: '0.65rem', color: '#505060', marginTop: 6, letterSpacing: '0.05em' }}>
               {formatTimestamp(notification.created_at)}
             </p>
           </div>
@@ -218,7 +218,7 @@ function NotificationsPage() {
         {/* Back link */}
         <Link
           to="/profile"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.7rem', fontWeight: 700, color: NT.textMuted, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: 'Rajdhani, sans-serif', marginBottom: '1.5rem', transition: 'color 0.2s' }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.7rem', fontWeight: 700, color: NT.textMuted, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '1.5rem', transition: 'color 0.2s' }}
           onMouseEnter={e => e.currentTarget.style.color = NT.primary}
           onMouseLeave={e => e.currentTarget.style.color = NT.textMuted}
         >
@@ -233,7 +233,7 @@ function NotificationsPage() {
                 <span style={{ width: 24, height: 3, background: NT.primary, borderRadius: 99, display: 'block' }} />
                 <span style={{ width: 14, height: 3, background: 'rgba(212,43,43,0.4)', borderRadius: 99, display: 'block' }} />
               </div>
-              <h1 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 'clamp(1.5rem,4vw,2rem)', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>
+              <h1 style={{ fontSize: 'clamp(1.5rem,4vw,2rem)', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>
                 Notifications
               </h1>
             </div>
@@ -247,7 +247,7 @@ function NotificationsPage() {
           {unreadCount > 0 && (
             <button
               onClick={handleMarkAllAsRead}
-              style={{ background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: NT.primary, fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.6rem 1.25rem', borderRadius: 10, cursor: 'pointer', transition: 'all 0.2s' }}
+              style={{ background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: NT.primary, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.6rem 1.25rem', borderRadius: 10, cursor: 'pointer', transition: 'all 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,43,43,0.18)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,43,43,0.1)'; }}
             >
@@ -266,7 +266,7 @@ function NotificationsPage() {
                 padding: '0.5rem 1rem', borderRadius: 9, border: 'none', cursor: 'pointer',
                 background: filter === f.id ? 'linear-gradient(135deg,#D42B2B,#A01E1E)' : 'transparent',
                 color: filter === f.id ? '#fff' : NT.textMuted,
-                fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.75rem',
+                fontWeight: 700, fontSize: '0.75rem',
                 textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'all 0.2s',
                 boxShadow: filter === f.id ? '0 4px 14px rgba(212,43,43,0.3)' : 'none',
               }}
@@ -288,7 +288,7 @@ function NotificationsPage() {
         {!loading && filteredNotifications.length === 0 && (
           <div style={{ background: NT.card, border: `2px dashed ${NT.border}`, borderRadius: 16, padding: '4rem', textAlign: 'center' }}>
             <i className="fas fa-inbox" style={{ fontSize: '3.5rem', color: '#2A2A30', marginBottom: '1rem', display: 'block' }} />
-            <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
               {filter === 'unread' ? 'No Unread Notifications' : 'No Notifications'}
             </h3>
             <p style={{ color: NT.textMuted, fontSize: '0.8rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
@@ -299,7 +299,7 @@ function NotificationsPage() {
             {filter !== 'all' && (
               <button
                 onClick={() => setFilter('all')}
-                style={{ background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: NT.primary, fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.6rem 1.25rem', borderRadius: 10, cursor: 'pointer' }}
+                style={{ background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: NT.primary, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.6rem 1.25rem', borderRadius: 10, cursor: 'pointer' }}
               >
                 View All Notifications
               </button>
@@ -321,3 +321,4 @@ function NotificationsPage() {
 }
 
 export default NotificationsPage;
+

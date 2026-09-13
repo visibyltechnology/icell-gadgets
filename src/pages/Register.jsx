@@ -26,7 +26,7 @@ function NTInput({ icon, label, ...props }) {
   return (
     <div>
       {label && (
-        <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6, fontFamily: 'Rajdhani, sans-serif' }}>
+        <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6, }}>
           {label}
         </label>
       )}
@@ -44,7 +44,6 @@ function NTInput({ icon, label, ...props }) {
             padding: icon ? '0.75rem 1rem 0.75rem 2.5rem' : '0.75rem 1rem',
             color: NT.textMain,
             fontSize: '0.875rem',
-            fontFamily: 'Inter, sans-serif',
             outline: 'none',
             transition: 'border-color 0.2s, box-shadow 0.2s',
             boxShadow: focused ? `0 0 0 3px rgba(212,43,43,0.1)` : 'none',
@@ -158,7 +157,7 @@ export default function Register() {
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: NT.bg }}>
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 1rem' }}>
+      <div className="flex-1 flex items-center justify-center p-3 sm:p-6 md:p-12">
         <div style={{ width: '100%', maxWidth: 520 }}>
 
           {/* Logo */}
@@ -167,11 +166,11 @@ export default function Register() {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
                 <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 16, padding: '0.75rem 1.25rem', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
                   <i className="fa-solid fa-mobile-screen" style={{ color: NT.primary, fontSize: '1.25rem' }} />
-                  <span style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.4rem', fontWeight: 800, color: NT.textMain, letterSpacing: '0.05em' }}>
+                  <span style={{ fontSize: '1.4rem', fontWeight: 800, color: NT.textMain, letterSpacing: '0.05em' }}>
                     ICELL<span style={{ color: NT.primary }}> GADGETS</span>
                   </span>
                 </div>
-                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.2em', fontFamily: 'Syne, sans-serif' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.2em', }}>
                   Nigeria's Trusted Store
                 </span>
               </div>
@@ -181,13 +180,13 @@ export default function Register() {
           {/* Card */}
           <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 20, overflow: 'hidden', boxShadow: '0 24px 80px rgba(0,0,0,0.5)' }}>
             {/* Header */}
-            <div style={{ background: 'linear-gradient(135deg, #1A1A1E, #161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.75rem 2rem', position: 'relative', overflow: 'hidden' }}>
+            <div className="p-5 sm:p-8 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1A1E, #161618)', borderBottom: `1px solid ${NT.border}` }}>
               <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '3px 12px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'Rajdhani, sans-serif', marginBottom: 10 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '3px 12px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>
                   <i className="fa-solid fa-user-plus" /> New Account
                 </div>
-                <h1 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>
+                <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>
                   Create Account
                 </h1>
                 <p style={{ color: NT.textMuted, fontSize: '0.8rem', marginTop: 4 }}>Join ICELL GADGETS today</p>
@@ -195,7 +194,7 @@ export default function Register() {
             </div>
 
             {/* Body */}
-            <div style={{ padding: '2rem' }}>
+            <div className="p-4 sm:p-8">
               {error && (
                 <div style={{ background: 'rgba(212,43,43,0.08)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '0.75rem 1rem', borderRadius: 10, marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.8rem', fontWeight: 500 }}>
                   <i className="fas fa-exclamation-circle" /> {error}
@@ -207,19 +206,19 @@ export default function Register() {
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', background: 'rgba(212,43,43,0.05)', border: '1px solid rgba(212,43,43,0.2)', borderRadius: 16, padding: '2rem' }}>
                     <CheckCircle size={52} style={{ color: '#4ade80' }} strokeWidth={1.5} />
                     <div>
-                      <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', marginBottom: 8 }}>Account Created!</h3>
+                      <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', marginBottom: 8 }}>Account Created!</h3>
                       <p style={{ color: '#4ade80', fontSize: '0.85rem', fontWeight: 500 }}>{successMessage}</p>
                       <p style={{ color: NT.textMuted, fontSize: '0.8rem', marginTop: 8 }}>Click the link in the email to activate your account, then log in.</p>
                     </div>
                   </div>
-                  <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: '1.5rem', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.85rem 2rem', borderRadius: 12, textDecoration: 'none', boxShadow: '0 6px 24px rgba(212,43,43,0.35)' }}>
+                  <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: '1.5rem', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.85rem 2rem', borderRadius: 12, textDecoration: 'none', boxShadow: '0 6px 24px rgba(212,43,43,0.35)' }}>
                     Go to Login <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.7rem' }} />
                   </Link>
                 </div>
               ) : (
                 <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                   {/* Name Row */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <NTInputWrapper label="First Name" icon="fa-user" name="firstName" value={formData.firstName} placeholder="John" required onChange={handleChange} type="text" />
                     <NTInputWrapper label="Last Name" icon="fa-user" name="lastName" value={formData.lastName} placeholder="Doe" required onChange={handleChange} type="text" />
                   </div>
@@ -265,7 +264,7 @@ export default function Register() {
                     onClick={() => toast.error('Account registration is currently disabled.')}
                     style={{
                       width: '100%', background: '#2A2A30',
-                      color: '#fff', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.85rem',
+                      color: '#fff', fontWeight: 700, fontSize: '0.85rem',
                       letterSpacing: '0.12em', textTransform: 'uppercase', border: 'none', borderRadius: 12,
                       padding: '1rem', cursor: 'not-allowed',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -318,7 +317,7 @@ function NTInputWrapper({ label, icon, ...props }) {
   return (
     <div>
       {label && (
-        <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: '#707080', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6, fontFamily: 'Rajdhani, sans-serif' }}>
+        <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: '#707080', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6, }}>
           {label}
         </label>
       )}
@@ -331,7 +330,7 @@ function NTInputWrapper({ label, icon, ...props }) {
           style={{
             width: '100%', background: '#0E0E10', border: `1px solid ${focused ? '#D42B2B' : '#2A2A30'}`, borderRadius: 10,
             padding: icon ? '0.75rem 1rem 0.75rem 2.5rem' : '0.75rem 1rem',
-            color: '#E8E8F0', fontSize: '0.875rem', fontFamily: 'Inter, sans-serif', outline: 'none',
+            color: '#E8E8F0', fontSize: '0.875rem', outline: 'none',
             transition: 'all 0.2s', boxShadow: focused ? '0 0 0 3px rgba(212,43,43,0.1)' : 'none',
           }}
         />
@@ -344,7 +343,7 @@ function PasswordField({ label, name, value, placeholder, show, onToggle, onChan
   const [focused, setFocused] = useState(false);
   return (
     <div>
-      <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: '#707080', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6, fontFamily: 'Rajdhani, sans-serif' }}>
+      <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: '#707080', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 6, }}>
         {label}
       </label>
       <div style={{ position: 'relative' }}>
@@ -356,7 +355,7 @@ function PasswordField({ label, name, value, placeholder, show, onToggle, onChan
           style={{
             width: '100%', background: '#0E0E10', border: `1px solid ${focused ? '#D42B2B' : '#2A2A30'}`, borderRadius: 10,
             padding: '0.75rem 3rem 0.75rem 2.5rem',
-            color: '#E8E8F0', fontSize: '0.875rem', fontFamily: 'Inter, sans-serif', outline: 'none',
+            color: '#E8E8F0', fontSize: '0.875rem', outline: 'none',
             transition: 'all 0.2s', boxShadow: focused ? '0 0 0 3px rgba(212,43,43,0.1)' : 'none',
           }}
         />
@@ -399,10 +398,11 @@ function LegalCheckbox({ agreed, label, onRead }) {
             {label}
           </button>
         </p>
-        <p style={{ fontSize: '0.6rem', color: agreed ? '#4ade80' : '#505060', marginTop: 3, textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, fontFamily: 'Rajdhani, sans-serif' }}>
+        <p style={{ fontSize: '0.6rem', color: agreed ? '#4ade80' : '#505060', marginTop: 3, textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, }}>
           {agreed ? <><i className="fas fa-check-circle" style={{ marginRight: 4 }} />Accepted</> : <><i className="fas fa-lock" style={{ marginRight: 4 }} />Click to read & accept</>}
         </p>
       </div>
     </div>
   );
 }
+

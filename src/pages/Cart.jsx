@@ -364,15 +364,14 @@ export default function Cart() {
     fontSize: '0.85rem',
     outline: 'none',
     transition: 'all 0.25s ease',
-    fontFamily: 'Inter, sans-serif',
-  };
+    };
 
   if (items.length === 0) {
     return (
       <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0E0E10' }}>
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', textAlign: 'center' }}>
           <ShoppingBag size={64} style={{ color: '#2A2A30', marginBottom: '1.5rem' }} />
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#E8E8F0', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem', fontFamily: 'Rajdhani, sans-serif' }}>Your Bag is Empty</h1>
+          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#E8E8F0', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem', }}>Your Bag is Empty</h1>
           <p style={{ color: '#707080', fontSize: '0.85rem', marginBottom: '2rem' }}>Looks like you haven't added anything yet.</p>
           <Link to="/products" style={{ display: 'inline-block', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontWeight: 800, padding: '1rem 2rem', borderRadius: 12, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', textDecoration: 'none', boxShadow: '0 8px 24px rgba(212,43,43,0.3)', transition: 'all 0.2s' }} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(212,43,43,0.45)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(212,43,43,0.3)'; }}>
             Start Shopping
@@ -390,7 +389,7 @@ export default function Cart() {
           <ArrowLeft size={16} /> Continue Shopping
         </Link>
 
-        <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 800, color: '#E8E8F0', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2rem', fontFamily: 'Rajdhani, sans-serif' }}>Shopping Bag</h1>
+        <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 800, color: '#E8E8F0', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2rem', }}>Shopping Bag</h1>
 
         {error && (
           <div style={{ background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF7070', padding: '1rem', borderRadius: 12, fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8, marginBottom: '2rem' }}>
@@ -411,7 +410,7 @@ export default function Cart() {
                 <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                     <div>
-                      <h3 style={{ fontWeight: 800, color: '#E8E8F0', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4, fontFamily: 'Rajdhani, sans-serif', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                      <h3 style={{ fontWeight: 800, color: '#E8E8F0', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                         {item.name}
                       </h3>
                       {item.selectedCondition && (
@@ -458,11 +457,11 @@ export default function Cart() {
                     <div style={{ textAlign: 'right' }}>
                       {item.paymentChoice === 'installment' ? (
                         <div>
-                          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#E8E8F0', letterSpacing: '0.02em', fontFamily: 'Rajdhani, sans-serif' }}>{fmt((item.periodPayment || item.monthlyPayment || 0) * item.quantity)}</div>
+                          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#E8E8F0', letterSpacing: '0.02em', }}>{fmt((item.periodPayment || item.monthlyPayment || 0) * item.quantity)}</div>
                           <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#707080', textTransform: 'uppercase', letterSpacing: '0.15em' }}>/ {item.paymentFrequency === 'weekly' ? 'Week' : 'Month'}</div>
                         </div>
                       ) : (
-                        <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#E8E8F0', letterSpacing: '0.02em', fontFamily: 'Rajdhani, sans-serif' }}>{fmt(item.price * item.quantity)}</div>
+                        <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#E8E8F0', letterSpacing: '0.02em', }}>{fmt(item.price * item.quantity)}</div>
                       )}
                     </div>
                   </div>
@@ -550,7 +549,7 @@ export default function Cart() {
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid #2A2A30', paddingTop: 16, marginBottom: 24, background: '#161618', padding: '1rem', borderRadius: 12, border: '1px solid #2A2A30' }}>
                       <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#C8C8D4', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Total Due Today</span>
-                      <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#D42B2B', letterSpacing: '0.02em', fontFamily: 'Rajdhani, sans-serif' }}>{fmt(totalToPayNow)}</span>
+                      <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#D42B2B', letterSpacing: '0.02em', }}>{fmt(totalToPayNow)}</span>
                     </div>
                   </>
                 );
@@ -608,8 +607,7 @@ export default function Cart() {
                 }}
                 disabled={loading}
                 style={{
-                  width: '100%', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', border: 'none', padding: '1rem', borderRadius: 12, fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', transition: 'all 0.25s ease', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, boxShadow: '0 8px 24px rgba(212,43,43,0.3)', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, fontFamily: 'Rajdhani, sans-serif'
-                }}
+                  width: '100%', background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', border: 'none', padding: '1rem', borderRadius: 12, fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', transition: 'all 0.25s ease', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, boxShadow: '0 8px 24px rgba(212,43,43,0.3)', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, }}
                 onMouseEnter={e => { if (!loading) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(212,43,43,0.45)'; } }}
                 onMouseLeave={e => { if (!loading) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(212,43,43,0.3)'; } }}
               >
@@ -658,7 +656,7 @@ export default function Cart() {
 
             {/* Modal Header */}
             <div style={{ background: 'linear-gradient(135deg,#1E1E22,#161618)', borderBottom: '1px solid #2A2A30', padding: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
-              <h2 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#E8E8F0', textTransform: 'uppercase', letterSpacing: '0.15em', fontFamily: 'Rajdhani, sans-serif', margin: 0 }}>Confirm &amp; Pay</h2>
+              <h2 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#E8E8F0', textTransform: 'uppercase', letterSpacing: '0.15em', margin: 0 }}>Confirm &amp; Pay</h2>
               <button onClick={() => { setShowPreview(false); setError(''); }} style={{ background: 'none', border: 'none', color: '#707080', cursor: 'pointer', fontSize: '1.25rem' }} onMouseEnter={e => e.currentTarget.style.color = '#D42B2B'} onMouseLeave={e => e.currentTarget.style.color = '#707080'}>
                 <i className="fas fa-times"></i>
               </button>
@@ -707,7 +705,7 @@ export default function Cart() {
                     ))}
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ fontSize: '0.75rem', color: '#707080' }}>Account No.</span>
-                      <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#D42B2B', fontFamily: 'monospace', letterSpacing: '3px' }}>{BANK_ACCOUNT.number}</span>
+                      <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#D42B2B', letterSpacing: '3px' }}>{BANK_ACCOUNT.number}</span>
                     </div>
                   </div>
                   <p style={{ fontSize: '0.7rem', color: '#9898A8', marginBottom: 12 }}>Transfer exactly <strong style={{ color: '#E8E8F0' }}>{fmt(totalToPayNow + (deliveryInfo.state ? getDeliveryDetails(deliveryInfo.state).price : 0))}</strong> and upload your receipt below.</p>
@@ -734,7 +732,7 @@ export default function Cart() {
                   <p style={{ fontSize: '0.75rem', color: '#9898A8', lineHeight: 1.6 }}>Pay for your order in easy installments. Klump handles the repayment schedule and your order ships immediately after approval.</p>
                   <div style={{ marginTop: 12, display: 'flex', justifyContent: 'space-between', background: '#1E1E22', borderRadius: 10, padding: '12px 16px', border: '1px solid #2A2A30' }}>
                     <span style={{ fontSize: '0.75rem', color: '#707080' }}>Order Total</span>
-                    <span style={{ fontWeight: 800, color: '#D42B2B', fontSize: '1rem', fontFamily: 'Rajdhani, sans-serif' }}>{fmt(totalToPayNow + (deliveryInfo.state ? getDeliveryDetails(deliveryInfo.state).price : 0))}</span>
+                    <span style={{ fontWeight: 800, color: '#D42B2B', fontSize: '1rem', }}>{fmt(totalToPayNow + (deliveryInfo.state ? getDeliveryDetails(deliveryInfo.state).price : 0))}</span>
                   </div>
                 </div>
               )}
@@ -754,9 +752,9 @@ export default function Cart() {
                           {item.selectedCondition && <span style={{ fontSize: '0.6rem', color: '#D42B2B', fontWeight: 800, textTransform: 'uppercase' }}>{item.selectedCondition}</span>}
                         </div>
                       </div>
-                      <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#C8C8D4', fontFamily: 'Rajdhani, sans-serif' }}>
+                      <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#C8C8D4', }}>
                         {fmt(item.paymentChoice === 'full' ? item.price * item.quantity : (item.periodPayment || 0) * item.quantity)}
-                        {item.paymentChoice !== 'full' && <span style={{ fontSize: '0.6rem', color: '#707080', fontFamily: 'Inter, sans-serif' }}>/{item.paymentFrequency === 'weekly' ? 'wk' : 'mo'}</span>}
+                        {item.paymentChoice !== 'full' && <span style={{ fontSize: '0.6rem', color: '#707080', }}>/{item.paymentFrequency === 'weekly' ? 'wk' : 'mo'}</span>}
                       </span>
                     </div>
                   ))}
@@ -791,4 +789,5 @@ export default function Cart() {
     </main>
   );
 }
+
 

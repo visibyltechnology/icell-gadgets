@@ -103,7 +103,7 @@ export default function ForgotPassword() {
             <div style={{ width: 80, height: 80, background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.25)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
               <CheckCircle size={40} style={{ color: '#4ade80' }} strokeWidth={1.5} />
             </div>
-            <h2 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
               Check Your Email
             </h2>
             <p style={{ color: NT.textMuted, fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '2rem' }}>
@@ -114,7 +114,7 @@ export default function ForgotPassword() {
             </p>
             <Link
               to="/login"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.9rem 2.5rem', borderRadius: 12, textDecoration: 'none', boxShadow: '0 6px 24px rgba(212,43,43,0.35)', transition: 'all 0.25s' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.9rem 2.5rem', borderRadius: 12, textDecoration: 'none', boxShadow: '0 6px 24px rgba(212,43,43,0.35)', transition: 'all 0.25s' }}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 10px 32px rgba(212,43,43,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 6px 24px rgba(212,43,43,0.35)'; e.currentTarget.style.transform = 'none'; }}
             >
@@ -138,7 +138,7 @@ export default function ForgotPassword() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center' }}>
                 <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 12, padding: '0.6rem 1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                   <i className="fa-solid fa-mobile-screen" style={{ color: NT.primary, fontSize: '1.1rem' }} />
-                  <span style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, letterSpacing: '0.05em' }}>
+                  <span style={{ fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, letterSpacing: '0.05em' }}>
                     ICELL<span style={{ color: NT.primary }}> GADGETS</span>
                   </span>
                 </div>
@@ -152,17 +152,17 @@ export default function ForgotPassword() {
             <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.75rem 2rem', position: 'relative', overflow: 'hidden' }}>
               <Link
                 to="/login"
-                style={{ position: 'absolute', top: 16, right: 16, zIndex: 10, display: 'inline-flex', alignItems: 'center', gap: 5, color: NT.textMuted, fontSize: '0.7rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'Rajdhani, sans-serif', textTransform: 'uppercase', letterSpacing: '0.1em', transition: 'color 0.2s' }}
+                style={{ position: 'absolute', top: 16, right: 16, zIndex: 10, display: 'inline-flex', alignItems: 'center', gap: 5, color: NT.textMuted, fontSize: '0.7rem', fontWeight: 700, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.1em', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = NT.textMain}
                 onMouseLeave={e => e.currentTarget.style.color = NT.textMuted}
               >
                 <ArrowLeft size={13} /> Back
               </Link>
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '3px 12px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'Rajdhani, sans-serif', marginBottom: 10 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '3px 12px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>
                   <i className="fa-solid fa-lock" /> Account Recovery
                 </div>
-                <h1 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>
+                <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>
                   Reset Password
                 </h1>
                 <p style={{ color: NT.textMuted, fontSize: '0.8rem', marginTop: 4 }}>Enter your email to receive a secure reset link</p>
@@ -179,7 +179,7 @@ export default function ForgotPassword() {
 
               <form onSubmit={handleResetPassword} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 8, fontFamily: 'Rajdhani, sans-serif' }}>
+                  <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 700, color: NT.textMuted, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: 8, }}>
                     Email Address
                   </label>
                   <div style={{ position: 'relative' }}>
@@ -195,7 +195,7 @@ export default function ForgotPassword() {
                       style={{
                         width: '100%', background: NT.bg, border: `1px solid ${focused ? NT.primary : NT.border}`, borderRadius: 10,
                         padding: '0.75rem 1rem 0.75rem 2.5rem', color: NT.textMain, fontSize: '0.875rem',
-                        fontFamily: 'Inter, sans-serif', outline: 'none', transition: 'all 0.2s',
+                        outline: 'none', transition: 'all 0.2s',
                         boxShadow: focused ? '0 0 0 3px rgba(212,43,43,0.1)' : 'none',
                       }}
                     />
@@ -207,7 +207,7 @@ export default function ForgotPassword() {
                   disabled={loading}
                   style={{
                     width: '100%', background: loading ? '#2A2A30' : 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff',
-                    fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.12em',
+                    fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.12em',
                     textTransform: 'uppercase', border: 'none', borderRadius: 12, padding: '1rem',
                     cursor: loading ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     boxShadow: loading ? 'none' : '0 6px 24px rgba(212,43,43,0.35)', transition: 'all 0.3s', opacity: loading ? 0.7 : 1,
@@ -237,3 +237,4 @@ export default function ForgotPassword() {
     </main>
   );
 }
+

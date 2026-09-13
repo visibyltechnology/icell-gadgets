@@ -1089,3 +1089,4 @@ const inputStyle = {
   transition: 'all 0.2s',
   boxSizing: 'border-box',
 };
+

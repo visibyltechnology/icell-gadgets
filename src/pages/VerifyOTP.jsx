@@ -200,7 +200,7 @@ export default function VerifyOTP() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center' }}>
                 <div style={{ background: NT.card, border: `1px solid ${NT.border}`, borderRadius: 12, padding: '0.6rem 1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                   <i className="fa-solid fa-mobile-screen" style={{ color: NT.primary, fontSize: '1.1rem' }} />
-                  <span style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, letterSpacing: '0.05em' }}>
+                  <span style={{ fontSize: '1.2rem', fontWeight: 800, color: NT.textMain, letterSpacing: '0.05em' }}>
                     ICELL<span style={{ color: NT.primary }}> GADGETS</span>
                   </span>
                 </div>
@@ -214,10 +214,10 @@ export default function VerifyOTP() {
             <div style={{ background: 'linear-gradient(135deg,#1A1A1E,#161618)', borderBottom: `1px solid ${NT.border}`, padding: '1.75rem 2rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               <div className="bg-circuit" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '3px 12px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'Rajdhani, sans-serif', marginBottom: 10 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212,43,43,0.1)', border: '1px solid rgba(212,43,43,0.3)', color: '#FF6060', padding: '3px 12px', borderRadius: 99, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>
                   <i className="fa-solid fa-envelope" /> Email Verification
                 </div>
-                <h1 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 6px' }}>
+                <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: NT.textMain, textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 6px' }}>
                   Verify Your Email
                 </h1>
                 <p style={{ color: NT.textMuted, fontSize: '0.8rem' }}>
@@ -237,7 +237,7 @@ export default function VerifyOTP() {
               {/* Timer */}
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: '1.75rem',
-                fontFamily: 'Rajdhani, sans-serif', fontSize: '1.5rem', fontWeight: 800,
+                fontSize: '1.5rem', fontWeight: 800,
                 color: isExpired ? NT.primary : timeLeft !== null && timeLeft < 60 ? '#F0A500' : NT.textMain,
                 letterSpacing: '0.1em',
               }}>
@@ -262,7 +262,7 @@ export default function VerifyOTP() {
                       className="otp-input"
                       style={{
                         width: 48, height: 58, textAlign: 'center',
-                        fontFamily: 'Rajdhani, sans-serif', fontSize: '1.5rem', fontWeight: 800, color: data ? NT.primary : NT.textMain,
+                        fontSize: '1.5rem', fontWeight: 800, color: data ? NT.primary : NT.textMain,
                         background: data ? 'rgba(212,43,43,0.06)' : NT.bg,
                         border: `2px solid ${data ? NT.primary : NT.border}`,
                         borderRadius: 12, outline: 'none', transition: 'all 0.2s',
@@ -279,7 +279,7 @@ export default function VerifyOTP() {
                   disabled={loading || isPageLoading}
                   style={{
                     width: '100%', background: loading ? '#2A2A30' : 'linear-gradient(135deg,#D42B2B,#A01E1E)', color: '#fff',
-                    fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.12em',
+                    fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.12em',
                     textTransform: 'uppercase', border: 'none', borderRadius: 12, padding: '1rem',
                     cursor: (loading || isPageLoading) ? 'not-allowed' : 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -323,3 +323,4 @@ export default function VerifyOTP() {
     </main>
   );
 }
+
