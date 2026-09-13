@@ -291,22 +291,24 @@ export default function ProductDetail() {
             )}
 
             {activeTab === 'specs' && (
-              <table className="data-table">
-                <tbody>
-                  {product.specifications && Object.keys(product.specifications).length > 0 ? (
-                    Object.entries(product.specifications).map(([key, val]) => (
-                      <tr key={key}>
-                        <td style={{ width: '30%', fontWeight: 600, color: '#111827', background: '#F9FAFB' }}>{key}</td>
-                        <td>{val}</td>
+              <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', width: '100%' }}>
+                <table className="data-table">
+                  <tbody>
+                    {product.specifications && Object.keys(product.specifications).length > 0 ? (
+                      Object.entries(product.specifications).map(([key, val]) => (
+                        <tr key={key}>
+                          <td style={{ width: '30%', fontWeight: 600, color: '#111827', background: '#F9FAFB' }}>{key}</td>
+                          <td>{val}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="2" style={{ textAlign: 'center', padding: '2rem' }}>No specifications available.</td>
                       </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan="2" style={{ textAlign: 'center', padding: '2rem' }}>No specifications available.</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             )}
 
             {activeTab === 'reviews' && (
