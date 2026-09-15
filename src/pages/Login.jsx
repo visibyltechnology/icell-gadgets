@@ -188,17 +188,19 @@ export default function Login() {
 
               {/* Submit */}
               <button
-                type="button"
-                disabled={true}
-                onClick={() => toast.error('Sign in is currently disabled.')}
+                type="submit"
+                disabled={loading}
                 className="btn-primary"
                 style={{
                   width: '100%', justifyContent: 'center', padding: '1rem',
-                  opacity: 0.5, cursor: 'not-allowed',
                   marginTop: '0.5rem',
                 }}
               >
-                <><i className="fas fa-lock"></i> Sign In (Locked)</>
+                {loading ? (
+                  <><i className="fas fa-spinner fa-spin"></i> Signing In...</>
+                ) : (
+                  'Sign In'
+                )}
               </button>
             </form>
 

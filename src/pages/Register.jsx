@@ -185,19 +185,19 @@ export default function Register() {
                   </div>
 
                   <button
-                    type="button"
-                    disabled={true}
-                    onClick={() => toast.error('Account registration is currently disabled.')}
+                    type="submit"
+                    disabled={loading}
+                    className="btn-primary"
                     style={{
-                      width: '100%', background: 'var(--bg-card)', color: 'var(--text-muted)',
-                      border: '1px solid var(--border)', padding: '1rem', borderRadius: '12px',
-                      fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.9rem',
-                      letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'not-allowed',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                      marginTop: '1rem'
+                      width: '100%', justifyContent: 'center', padding: '1rem',
+                      marginTop: '1rem',
                     }}
                   >
-                    <i className="fas fa-lock" /> Registration Locked
+                    {loading ? (
+                      <><i className="fas fa-spinner fa-spin"></i> Creating Account...</>
+                    ) : (
+                      'Create Account'
+                    )}
                   </button>
 
                   <div style={{ marginTop: '1rem', textAlign: 'center' }}>
