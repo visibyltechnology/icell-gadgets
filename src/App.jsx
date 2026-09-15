@@ -22,7 +22,6 @@ const Notifications = lazy(() => import('./pages/Notifications'));
 const DeliveryPortal= lazy(() => import('./pages/DeliveryPortal'));
 const Terms          = lazy(() => import('./pages/Terms'));
 const PrivacyPolicy  = lazy(() => import('./pages/PrivacyPolicy'));
-const GoodMoodDeals  = lazy(() => import('./pages/GoodMoodDeals'));
 
 const AdminLayout      = lazy(() => import('./pages/Admin/AdminLayout'));
 const ProductManager   = lazy(() => import('./pages/Admin/ProductManager'));
@@ -34,9 +33,7 @@ const ProductForm      = lazy(() => import('./pages/Admin/ProductForm'));
 const AdminOrders      = lazy(() => import('./pages/Admin/AdminOrders'));
 const AdminUsers       = lazy(() => import('./pages/Admin/AdminUsers'));
 
-const TradeInManager   = lazy(() => import('./pages/Admin/TradeInManager'));
 const SiteSettings     = lazy(() => import('./pages/Admin/SiteSettings'));
-const AdminGoodMood    = lazy(() => import('./pages/Admin/AdminGoodMood'));
 
 /* ─── Page-level Suspense mini-loader ─── */
 const Loader = () => (
@@ -207,7 +204,6 @@ function AppContent() {
           <Route path="/products"       element={<Shop />} />
           <Route path="/products/:id"   element={<ProductDetail />} />
           <Route path="/shop"           element={<Shop />} />
-          <Route path="/good-mood-deals" element={<GoodMoodDeals />} />
 
           {/* Electronics category routes */}
           <Route path="/phones"         element={<Shop />} />
@@ -239,10 +235,8 @@ function AppContent() {
             <Route path="edit/:id"    element={<ProductForm />} />
             <Route path="orders"      element={<AdminOrders />} />
 
-            <Route path="trade-ins"   element={<TradeInManager />} />
             <Route path="users"       element={<AdminUsers />} />
             <Route path="settings"    element={<SiteSettings />} />
-            <Route path="good-mood"   element={<AdminGoodMood />} />
           </Route>
         </Routes>
       </Suspense>

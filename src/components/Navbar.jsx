@@ -71,7 +71,6 @@ export default function Navbar() {
 
     const RIGHT_LINKS = [
         { label: 'Tablets', to: '/products?cat=Tablets', active: catActive('Tablets') },
-        { label: 'Deals', to: '/good-mood-deals', active: isActive('/good-mood-deals'), red: true },
         { label: 'Shop All', to: '/products', active: isActive('/products') && !location.search },
     ];
 
@@ -231,7 +230,6 @@ export default function Navbar() {
                                 { to: '/products?cat=iPhone', label: 'iPhone' },
                                 { to: '/products?cat=Laptops', label: 'Laptops' },
                                 { to: '/products?cat=Tablets', label: 'Tablets' },
-                                { to: '/good-mood-deals', label: '⚡ Hot Deals', red: true },
                             ].map(l => (
                                 <Link key={l.to} to={l.to} style={{
                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
