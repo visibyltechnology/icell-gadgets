@@ -1,5 +1,5 @@
-const CLOUD_NAME = "drb9g2h5";
-const UPLOAD_PRESET = "ICELL GADGETS";
+const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "z1ik7fgo";
+const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "icellgadgets";
 const ASSET_FOLDER = "products";
 
 /**
