@@ -5,13 +5,13 @@ import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAKTK7J1YXicdUF79Yt-eEcDb3ivt8vbIU",
-  authDomain: "neo-gadgets.firebaseapp.com",
-  projectId: "neo-gadgets",
-  storageBucket: "neo-gadgets.firebasestorage.app",
-  messagingSenderId: "194636446452",
-  appId: "1:194636446452:web:251ae6642f416291e97ca1",
-  measurementId: "G-SQHGZ8143G"
+  apiKey: "AIzaSyC7bkSVJdwaJmsqLxRI0wtkqWF4jhFzQgQ",
+  authDomain: "icellgadgets-8f84e.firebaseapp.com",
+  projectId: "icellgadgets-8f84e",
+  storageBucket: "icellgadgets-8f84e.firebasestorage.app",
+  messagingSenderId: "809703155699",
+  appId: "1:809703155699:web:b521e185d482d181639486",
+  measurementId: "G-D8FMDYHHGK"
 };
 
 const app = initializeApp(firebaseConfig);
