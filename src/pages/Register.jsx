@@ -71,7 +71,10 @@ export default function Register() {
       });
 
       try {
-        await sendEmailVerification(user);
+        await sendEmailVerification(user, {
+          url: `${window.location.origin}/login`,
+          handleCodeInApp: false,
+        });
         setSuccessMessage('Account created! Please check your email to verify your account.');
         toast.success('Verification email sent! Check your inbox.');
       } catch (emailErr) {

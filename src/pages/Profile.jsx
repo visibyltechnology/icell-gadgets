@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { doc, getDoc, collection, query, where, getDocs, runTransaction } from 'firebase/firestore';
 import { auth, db } from '../firebase';
+import { sendEmailVerification } from 'firebase/auth';
 import useAuthStore from '../store/useAuthStore';
 import Footer from '../components/Footer';
 import { Package, Clock, CheckCircle, ShoppingBag, Search, ChevronDown, ChevronUp, SlidersHorizontal, ArrowLeftRight } from 'lucide-react';
@@ -45,6 +46,24 @@ export default function Profile() {
   const [error, setError] = useState('');
   const [customAmounts, setCustomAmounts] = useState({});
 
+  const handleResendVerification = async () => {
+    if (!auth.currentUser) return;
+    try {
+      await sendEmailVerification(auth.currentUser, {
+        url: `${window.location.origin}/profile`,
+        handleCodeInApp: false,
+      });
+      toast.success('Verification email sent! Check your inbox.');
+    } catch (err) {
+      console.error(err);
+      if (err.code === 'auth/too-many-requests') {
+        toast.error('Too many requests. Please wait a while before trying again.');
+      } else {
+        toast.error('Failed to send verification email. Please try again later.');
+      }
+    }
+  };
+
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All Orders');
   const [sortBy, setSortBy] = useState('Date (Newest First)');
@@ -60,7 +79,20 @@ export default function Profile() {
       try {
         const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) setProfileData(docSnap.data());
+        let data = docSnap.exists() ? docSnap.data() : null;
+
+        await user.reload();
+        if (user.emailVerified && data && data.isEmailVerified !== true) {
+          try {
+            const { updateDoc } = await import('firebase/firestore');
+            await updateDoc(docRef, { isEmailVerified: true });
+            data.isEmailVerified = true;
+          } catch (e) {
+            console.error('Failed to sync email verified status in profile', e);
+          }
+        }
+        
+        if (data) setProfileData(data);
 
         const q = query(collection(db, "orders"), where("userId", "==", user.uid));
         const orderSnap = await getDocs(q);
@@ -266,6 +298,27 @@ export default function Profile() {
                         {field.value}
                         {field.highlight === false && <i className="fas fa-check-circle" style={{ color: '#4ade80', marginLeft: 6, fontSize: '0.8rem' }} />}
                       </p>
+                      {field.label === 'Account Status' && field.highlight && (
+                        <button
+                          onClick={handleResendVerification}
+                          style={{
+                            marginTop: '0.5rem',
+                            background: 'rgba(212,43,43,0.1)',
+                            border: '1px solid rgba(212,43,43,0.3)',
+                            color: '#DC2626',
+                            padding: '6px 12px',
+                            borderRadius: 6,
+                            fontSize: '0.7rem',
+                            fontWeight: 700,
+                            cursor: 'pointer',
+                            transition: 'all 0.2s',
+                          }}
+                          onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,43,43,0.15)'}
+                          onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,43,43,0.1)'}
+                        >
+                          Resend Verification Email
+                        </button>
+                      )}
                     </div>
                   ))}
                 </div>

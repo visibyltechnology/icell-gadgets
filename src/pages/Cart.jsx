@@ -20,7 +20,7 @@ import {
 } from '../utils/notificationService';
 
 // ── Klump BNPL
-const KLUMP_PUBLIC_KEY = 'klp_pk_7e4780b45f194d81902b42f4ed2031f6b219fe82ec42464db113beea89c94967';
+const KLUMP_PUBLIC_KEY = 'klp_pk_8ce1e5b778f74c4abec932c231553a12f24cc2e7b514412c8c19868305b5820b';
 let klumpScriptPromise = null;
 function loadKlumpScript() {
   if (klumpScriptPromise) return klumpScriptPromise;

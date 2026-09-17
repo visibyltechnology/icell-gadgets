@@ -18,10 +18,26 @@ const useAuthStore = create((set) => ({
       set({ user, isAdmin: false, loading: true });
 
       try {
-        const { doc, getDoc } = await import('firebase/firestore');
+        const { doc, getDoc, updateDoc } = await import('firebase/firestore');
         const { db } = await import('../firebase');
-        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        
+        // Refresh the user token to get the latest email verified status
+        await user.reload();
+
+        const userDocRef = doc(db, 'users', user.uid);
+        const userDoc = await getDoc(userDocRef);
         const data = userDoc.exists() ? userDoc.data() : {};
+        
+        // Sync to database if verified in auth but not in DB
+        if (user.emailVerified && data.isEmailVerified !== true) {
+          try {
+            await updateDoc(userDocRef, { isEmailVerified: true });
+            data.isEmailVerified = true;
+          } catch (e) {
+            console.error('Failed to update email verification status in db', e);
+          }
+        }
+
         const isAdmin = data.isAdmin === true || data.role === 'admin';
         set({ isAdmin, loading: false });
       } catch (err) {
